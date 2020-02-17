@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="subTypeAllServiceViewModel"
+            type="fragment.subtypeallservice.SubTypeAllServiceViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{subTypeAllServiceViewModel.isServiceDataEmpty ? View.GONE : View.VISIBLE}"></androidx.recyclerview.widget.RecyclerView>
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data"
+            android:drawableTop="@drawable/nobooking"
+            android:visibility="@{subTypeAllServiceViewModel.isServiceDataEmpty ? View.VISIBLE : View.GONE}"
+            android:textAlignment="center"
+            android:fontFamily="@font/txt_bold"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/_17sdp">
+        </androidx.appcompat.widget.AppCompatTextView>
+
+    </RelativeLayout>
+</layout>

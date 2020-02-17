@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="activity.home.editprofile.EditProfileActivity"
+    tools:showIn="@layout/activity_edit_profile">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="editProfileViewModel"
+            type="activity.home.editprofile.EditProfileViewModel" />
+
+        <variable
+            name="user"
+            type="data.model.api.login.User" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_8sdp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtmobileno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/txt_bold"
+            android:text="@string/mobile_number"
+            android:textSize="@dimen/_15sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtmobileno"
+            android:editable="false"
+            android:text="@{user.getMobilenumber()}"></com.google.android.material.textfield.TextInputEditText>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtfirstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobile"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/txt_bold"
+            android:text="@string/first_name"
+            android:textSize="@dimen/_15sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:layout_below="@+id/txtfirstname"
+            android:text="@{user.getFirstname()}"></com.google.android.material.textfield.TextInputEditText>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtlastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstname"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/txt_bold"
+            android:text="@string/last_name"
+            android:textSize="@dimen/_15sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtlastname"
+            android:inputType="text"
+            android:text="@{user.getLastname()}"></com.google.android.material.textfield.TextInputEditText>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtemailid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lastname"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/txt_bold"
+            android:text="@string/profile_email"
+            android:textSize="@dimen/_15sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtemailid"
+            android:inputType="textEmailAddress"
+            android:text="@{user.getEmailid()}"></com.google.android.material.textfield.TextInputEditText>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailid"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/txt_bold"
+            android:text="@string/address"
+            android:textSize="@dimen/_15sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtaddress"
+            android:inputType="text"
+            android:text="@{user.getStreetAddress()}"></com.google.android.material.textfield.TextInputEditText>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@color/black"
+            android:fontFamily="@font/txt_bold"
+            android:text="@string/update"
+            android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+    </RelativeLayout>
+</layout>

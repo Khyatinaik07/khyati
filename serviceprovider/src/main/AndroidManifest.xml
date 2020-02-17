@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.serviceprovider">
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".app"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="fragment.MenuFragment"
+            android:label="@string/title_activity_menu_fragment"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="activity.profile.ActivityBankDetail"
+            android:label="@string/title_activity_bank_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.profile.ActivityServiceLocation"
+            android:label="@string/title_activity_service_location"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.profile.ActivityAboutMe"
+            android:label="@string/title_activity_about_me"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.profile.ActivityIdentityProof"
+            android:label="@string/title_activity_identity_proof"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="fragment.myprofile.MyProfileFragment"
+            android:label="@string/title_activity_my_profile_fragment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.home.NewLeadDetailActivity"
+            android:label="@string/title_activity_new_lead_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="fragment.NewLeadFragment"
+            android:label="@string/title_activity_new_lead_fragment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.authentication.forgotpassword.ForgotPasswordActivity"
+            android:label="@string/title_activity_forgot_password"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.authentication.otpverify.VerifyOTPActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.home.homepagetab.HomePageTabActivity"
+            android:label="@string/title_activity_home_page_tab"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.authentication.ActivityRegistration"
+            android:label="@string/title_activity_registration"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="activity.authentication.ActivityLogin"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="activity.basic.BaseActivity" />
+        <activity
+            android:name="activity.basic.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="activity.profile.GetAddressIntentService"
+            android:exported="false" />
+    </application>
+
+</manifest>

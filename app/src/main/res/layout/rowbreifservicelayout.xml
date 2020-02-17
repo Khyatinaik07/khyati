@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout android:background="?android:attr/selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="serviceData"
+            type="data.model.api.homepage.ServiceData" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linear"
+        android:clickable="true"
+        android:focusable="true"
+        android:weightSum="3">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt1"
+                    android:fontFamily="@font/txt_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:text="@{serviceData.title}"
+                    android:singleLine="false"
+                    android:textSize="@dimen/_13sdp">
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt1"
+                    android:layout_centerVertical="true"
+                    android:maxLines="2"
+                    android:text="@{serviceData.subTitle}"
+                    android:singleLine="false"
+                    android:textSize="@dimen/_10sdp">
+                </androidx.appcompat.widget.AppCompatTextView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_weight="2"
+                android:scaleType="centerCrop">
+            </androidx.appcompat.widget.AppCompatImageView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/lightgrey">
+        </View>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

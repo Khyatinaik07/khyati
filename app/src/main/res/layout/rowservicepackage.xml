@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radio"
+            android:fontFamily="@font/txt_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:checked="false"
+            android:textSize="@dimen/_16sdp"></androidx.appcompat.widget.AppCompatRadioButton>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt1"
+            android:fontFamily="@font/txt_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="@dimen/_13sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_23sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:drawableLeft="@drawable/round"
+            android:drawablePadding="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_23sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:drawableLeft="@drawable/round"
+            android:drawablePadding="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_23sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:drawableLeft="@drawable/round"
+            android:drawablePadding="@dimen/_8sdp"
+
+            android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/lightgrey"></View>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

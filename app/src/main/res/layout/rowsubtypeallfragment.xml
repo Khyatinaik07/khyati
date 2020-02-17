@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="?android:attr/selectableItemBackground">
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="serviceData"
+            type="data.model.api.homepage.ServiceData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@{serviceData.name}"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:textSize="@dimen/_13sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@+id/txt"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/lightgrey"></View>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,133 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">WowService</string>
+
+    <string name="some_error">Request timed out. Please try again later.</string>
+    <string name="some_thing_wrong">Some thing went wrong. Please try again later.</string>
+    <string name="connection_error">You are offline. Kindly check your network connection.</string>
+    <string name="session_expired">Your session has expired, please log in again.</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">LOGIN</string>
+    <string name="old_password">Enter Old Password</string>
+    <string name="password">Enter New Password</string>
+    <string name="passsword_login">Enter Password</string>
+    <string name="cpassword">Enter Confirm Password</string>
+    <string name="submit">Submit</string>
+    <string name="fp">Forgot Password?</string>
+    <string name="account">No Account yet? Create by click here</string>
+    <string name="register_first">Please do registration first</string>
+
+    <string name="title_activity_registration">Registration</string>
+    <string name="or">OR</string>
+    <string name="registration">REGISTRATION</string>
+    <string name="fname">Enter First Name</string>
+    <string name="mname">Enter Middle Name</string>
+    <string name="lname">Enter Last Name</string>
+    <string name="code">+91</string>
+    <string name="mno">Enter Mobile Number</string>
+    <string name="email">Enter Email</string>
+    <string name="enter_your_fname">Provide your first name.</string>
+    <string name="enter_your_lname">Provide your last name.</string>
+    <string name="enter_valid_fname">Provide a shorter first name with less than 60 characters.</string>
+    <string name="enter_valid_lname">Provide a shorter last name with less than 60 characters.</string>
+    <string name="enter_email">Enter a valid email id.</string>
+    <string name="enter_valid_email">Enter a valid email id.</string>
+    <string name="enter_valid_website_url">Enter a valid website url.</string>
+    <string name="enter_phone">Enter a valid mobile number.</string>
+    <string name="enter_valid_phone">Mobile Number must be 10 digit</string>
+    <string name="enter_password">Please enter a secure password. Min 6 characters.</string>
+    <string name="enter_old_password">Please enter an old password</string>
+    <string name="enter_valid_password">Password cannot be less than 6 characters</string>
+    <string name="enter_confirm_password">Please enter a confirm secure password. Min 6 characters.</string>
+    <string name="password_not_match">Passwords don\'t match. Confirm password should be same as password.</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="accept_tnc">Please read our terms and select the checkbox to continue.</string>
+
+    <string name="ourservice">Our Services</string>
+    <string name="services">Services</string>
+    <string name="searchby">Search by Service name</string>
+
+    <string name="title_activity_sub_type_fragment">SubTypeFragment</string>
+    <string name="title_activity_sub_type_service">SubTypeServiceActivity</string>
+
+    <string name="title_activity_sub_service_all">SubServiceAllActivity</string>
+    <string name="no_data">No Data</string>
+
+    <string name="title_activity_booking_fragment">BookingFragment</string>
+    <string name="booknow">Book Now</string>
+
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="currentloc">Current Location</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAHN2Dx0wM-VTiyFXpOnAciRubH5le878I</string>
+    <string name="btnCurrent">Use Current Location</string>
+    <string name="anotherloc">Another Location</string>
+    <string name="searchanother">Search Location here</string>
+
+    <string name="title_activity_date_time">DateTimeActivity</string>
+    <string name="selectdate">Select Date For Service</string>
+    <string name="selecttime">Select Time For Service</string>
+    <string name="next">NEXT</string>
+
+    <string name="title_activity_my_profile_fragment">MyProfileFragment</string>
+    <string name="aboutus">About Us</string>
+    <string name="contactus">Contact Us</string>
+    <string name="shareus">Share</string>
+    <string name="rateus">Rate Us</string>
+    <string name="download">Download Partner App</string>
+    <string name="change_password">Change Password</string>
+    <string name="myProfile">My Profile</string>
+    <string name="fullname">Full Name</string>
+    <string name="profile_email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="street_address">Street Address</string>
+    <string name="logout">LOGOUT</string>
+
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="update">Update</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="txtaddress">Address</string>
+
+    <string name="title_activity_booking_type">BookingTypeActivity</string>
+
+
+    <string name="title_activity_booking_history_fragment">BookingHistoryFragment</string>
+
+    <string name="title_activity_preffered_service">PrefferedServiceActivity</string>
+    <string name="relatedwork">Gallery</string>
+
+    <string name="title_activity_service_package">ServicePackageActivity</string>
+    <string name="selectpackage">Please select your package:</string>
+
+    <string name="title_activity_membership">MembershipActivity</string>
+    <string name="selectmembership">Select Membership Package: </string>
+
+    <string name="title_activity_booking_detail">BookingDetailActivity</string>
+    <string name="personaldetail">Personal Details</string>
+    <string name="bookingdetail">Booking Details</string>
+
+    <string name="address">Address</string>
+    <string name="payment">Payment Detail</string>
+    <string name="subtotal">Sub Total</string>
+    <string name="extracharge">Extra charge</string>
+    <string name="grandtotal">Grand Total</string>
+    <string name="service">Service :\u0020</string>
+    <string name="work">Work :\u0020</string>
+    <string name="time">Time :\u0020</string>
+    <string name="title_activity_forgot_password">ActivityForgotPassword</string>
+    <string name="title_activity_verify_otp">VerifyOTPActivity</string>
+
+    <string name="verify">Verify OTP</string>
+    <string name="enterotp">Enter OTP</string>
+
+    <string name="mybooking">My Bookings</string>
+    <string name="orderid">Order Id :\u0020</string>
+    <string name="nobooking">No Booking</string>
+    <string name="booknewservice">You can book a new service</string>
+    <string name="placingrequest">by placing a request now</string>
+
+    <string name="title_activity_change_password">ChangePasswordActivity</string>
+    <string name="title">Change Password</string>
+
+</resources>

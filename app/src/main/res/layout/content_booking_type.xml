@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:com.example.serviceprovider.app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    com.example.serviceprovider.app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="fragment.BookingTypeActivity"
+    tools:showIn="@layout/activity_booking_type">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tablayout" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            com.example.serviceprovider.app:tabIndicatorColor="@color/white"
+            com.example.serviceprovider.app:tabMode="fixed"
+            com.example.serviceprovider.app:tabSelectedTextColor="@color/white"
+            com.example.serviceprovider.app:tabTextColor="@color/transwhite">
+        </com.google.android.material.tabs.TabLayout>
+
+    </RelativeLayout>
+</layout>

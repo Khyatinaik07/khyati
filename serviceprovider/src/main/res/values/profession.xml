@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="profession">
+        <item>--Select Profession--</item>
+        <item name="cleaner">Cleaner</item>
+        <item name="decorator">Decorator</item>
+        <item name="photographer">Photographer</item>
+        <item name="Beautician">Beautician</item>
+    </array>
+
+</resources>

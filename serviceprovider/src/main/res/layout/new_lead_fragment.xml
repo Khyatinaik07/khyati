@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="viewModel.NewLeadAdapterViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="fragment.NewLeadFragment"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/title"
+                        fontPath="font/TxtOther.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:layout_weight="10"
+                        android:text="@string/newlead"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/_17sdp"
+                        android:textStyle="bold">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <RelativeLayout
+                        android:id="@+id/badge2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_8sdp">
+                        <RelativeLayout
+                            android:id="@+id/relative_layout1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <Button
+                                android:id="@+id/myButton1"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:background="@drawable/alert" />
+                        </RelativeLayout>
+                        <TextView
+                            android:id="@+id/badge_notification_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@id/relative_layout1"
+                            android:background="@drawable/badgebackground"
+                            android:text="10"
+                            android:textColor="#FFF"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/lightgrey"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+                </View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:layout_marginRight="@dimen/_3sdp"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_108sdp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        app:adapter="@{viewModel.adapter}"
+                        app:data="@{viewModel.data}"
+                        android:id="@+id/rv">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

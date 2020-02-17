@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="activity.home.breifservicesubtype.SubTypeServiceActivity">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="subTypeServiceViewModel"
+            type="activity.home.breifservicesubtype.SubTypeServiceViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        tools:showIn="@layout/activity_sub_type_service"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{subTypeServiceViewModel.isServiceEmpty ? View.GONE : View.VISIBLE}"></androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/nobooking"
+            android:fontFamily="@font/txt_bold"
+            android:text="@string/no_data"
+            android:textAlignment="center"
+            android:textSize="@dimen/_17sdp"
+            android:visibility="@{subTypeServiceViewModel.isServiceEmpty ? View.VISIBLE : View.GONE}"></androidx.appcompat.widget.AppCompatTextView>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,2 @@
+include ':app', ':shimmer', ':transitional-imageview', ':serviceprovider'
+rootProject.name='OnlineServicePortal'

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/_10sdp"
+    tools:context="activity.profile.ActivityIdentityProof"
+    tools:showIn="@layout/activity_identity_proof">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center_horizontal">
+
+            <com.transferwise.sequencelayout.SequenceLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:id="@+id/first"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:active="true"
+                    app:title="@string/identity">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/upload"
+                        fontPath="font/TxtBold.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/black"
+                        android:text="Upload Document"
+                        android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+                </com.transferwise.sequencelayout.SequenceStep>
+
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:id="@+id/second"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Current Address" />
+
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:id="@+id/third"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Declaration" />
+            </com.transferwise.sequencelayout.SequenceLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</layout>

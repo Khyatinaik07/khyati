@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="fragment.MenuFragment"
+    tools:showIn="@layout/activity_menu_fragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_7sdp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:cardCornerRadius="@dimen/_3sdp"
+                app:cardElevation="@dimen/_1sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:contentPadding="@dimen/_8sdp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/pan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pan"
+                        android:textSize="@dimen/_13sdp"
+                        android:clickable="true"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img1"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/arrow"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/pan"
+                        app:layout_constraintRight_toRightOf="@+id/pan"
+                        app:layout_constraintTop_toTopOf="@+id/pan">
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <View
+                        android:id="@+id/view1"
+                        android:layout_width="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/lightgrey"
+                        app:layout_constraintTop_toBottomOf="@+id/pan">
+                    </View>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/share"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintLeft_toLeftOf="@+id/view1"
+                        app:layout_constraintTop_toBottomOf="@+id/view1">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img2"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/arrow"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view1"
+                        app:layout_constraintTop_toTopOf="@+id/txt2">
+                    </androidx.appcompat.widget.AppCompatImageView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:cardCornerRadius="@dimen/_3sdp"
+                app:cardElevation="@dimen/_1sdp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@+id/card1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/credits"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/credits"
+                        android:textSize="@dimen/_13sdp"
+                        android:clickable="true"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img3"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/arrow"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/credits"
+                        app:layout_constraintRight_toRightOf="@+id/credits"
+                        app:layout_constraintTop_toTopOf="@+id/credits">
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/lightgrey"
+                        app:layout_constraintTop_toBottomOf="@+id/credits">
+                    </View>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/insurence"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/insurence"
+                        android:textSize="@dimen/_13sdp"
+                        android:clickable="true"
+                        app:layout_constraintLeft_toLeftOf="@+id/view2"
+                        app:layout_constraintTop_toBottomOf="@+id/view2">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img4"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/arrow"
+                        app:layout_constraintBottom_toBottomOf="@+id/insurence"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view2"
+                        app:layout_constraintTop_toTopOf="@+id/insurence">
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_3sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:cardElevation="@dimen/_1sdp"
+                android:id="@+id/card3"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@+id/card2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aboutus"
+                        android:layout_width="0dp"
+                        android:clickable="true"
+                        android:layout_height="wrap_content"
+                        android:text="@string/aboutus"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img5"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/arrow"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/aboutus"
+                        app:layout_constraintRight_toRightOf="@+id/aboutus"
+                        app:layout_constraintTop_toTopOf="@+id/aboutus">
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/lightgrey"
+                        app:layout_constraintTop_toBottomOf="@+id/aboutus">
+                    </View>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/contact"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:clickable="true"
+                        android:text="@string/contactus"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintLeft_toLeftOf="@+id/view3"
+                        app:layout_constraintTop_toBottomOf="@+id/view3">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img6"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/arrow"
+                        app:layout_constraintBottom_toBottomOf="@+id/contact"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/contact"
+                        app:layout_constraintTop_toTopOf="@+id/contact">
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/lightgrey"
+                        app:layout_constraintTop_toBottomOf="@+id/contact">
+                    </View>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/download"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:clickable="true"
+                        android:text="@string/download"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintLeft_toLeftOf="@+id/view4"
+                        app:layout_constraintTop_toBottomOf="@+id/view4">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img7"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/arrow"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/download"
+                        app:layout_constraintRight_toRightOf="@+id/download"
+                        app:layout_constraintTop_toTopOf="@+id/download">
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/lightgrey"
+                        app:layout_constraintTop_toBottomOf="@+id/download">
+                    </View>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/rate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/rate"
+                        android:textSize="@dimen/_13sdp"
+                        android:clickable="true"
+                        app:layout_constraintLeft_toLeftOf="@+id/view5"
+                        app:layout_constraintTop_toBottomOf="@+id/view5">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img8"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/arrow"
+                        app:layout_constraintBottom_toBottomOf="@+id/rate"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rate"
+                        app:layout_constraintTop_toTopOf="@+id/rate">
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                android:textColor="@color/red"
+                fontPath="font/TxtBold.ttf"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintTop_toBottomOf="@+id/card3"
+                android:layout_marginTop="@dimen/_40sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:gravity="center"
+                android:clickable="true"
+                android:paddingBottom="@dimen/_108sdp">
+            </androidx.appcompat.widget.AppCompatTextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

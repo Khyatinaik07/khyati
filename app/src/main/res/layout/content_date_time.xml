@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:com.example.serviceprovider.app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    com.example.serviceprovider.app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="activity.home.DateTimeActivity"
+    tools:showIn="@layout/activity_date_time"
+    android:paddingTop="@dimen/_8sdp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selectdate"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textSize="@dimen/_15sdp"
+        android:fontFamily="@font/txt_bold"
+        android:id="@+id/titleDate"
+        android:layout_marginRight="@dimen/_8sdp">
+    </androidx.appcompat.widget.AppCompatTextView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleDate"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:layout_marginRight="@dimen/_4sdp"
+        android:id="@+id/relative"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selecttime"
+        android:layout_below="@+id/relative"
+        android:textSize="@dimen/_15sdp"
+        android:textAlignment="center"
+        android:id="@+id/titleTime"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/txt_bold"
+        android:layout_marginRight="@dimen/_8sdp">
+    </androidx.appcompat.widget.AppCompatTextView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTime"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_marginRight="@dimen/_3sdp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvtime">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:text="@string/next"
+        android:textSize="@dimen/_15sdp"
+        android:fontFamily="@font/txt_bold">
+    </androidx.appcompat.widget.AppCompatButton>
+
+</RelativeLayout>
+</layout>

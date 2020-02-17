@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="fragment.homepage.HomePageFragment"
+    tools:showIn="@layout/activity_home_page_fragment">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="homePageViewModel"
+            type="fragment.homepage.HomePageViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/r"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/relative1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:layout_marginBottom="@dimen/_7sdp">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ourservice"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_3sdp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/service"
+                    android:paddingBottom="@dimen/_105sdp">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </androidx.recyclerview.widget.RecyclerView>
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/service"
+                    android:fontFamily="@font/txt_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relative2"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:text="@string/services"
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="bold">
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ourservice"
+                    android:fontFamily="@font/txt_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relative1"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:text="@string/ourservice"
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="bold">
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_7sdp"
+            app:cardCornerRadius="@dimen/_3sdp"
+            app:cardElevation="@dimen/_1sdp">
+            <androidx.appcompat.widget.SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconifiedByDefault="false"
+                app:queryHint="@string/searchby"
+                app:queryBackground="@android:color/transparent">
+            </androidx.appcompat.widget.SearchView>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</layout>

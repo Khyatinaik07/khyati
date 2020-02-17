@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="activity.authentication.otpverify.VerifyOTPActivity"
+    tools:showIn="@layout/activity_verify_otp">
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="verifyOTPViewModel"
+            type="activity.authentication.otpverify.VerifyOTPViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_8sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/txt_bold"
+                    android:text="@string/verify"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_17sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtotp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="@string/enterotp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextInputLayoutAppearance"
+                    android:id="@+id/otp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/otp2"
+                        style="@style/EditTextBaseStyle"
+                        android:hint="@string/enterotp">
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@color/transwhite"
+                    android:text="@string/submit"
+                    android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+</layout>

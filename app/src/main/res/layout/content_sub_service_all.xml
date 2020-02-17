@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="subAllServiceViewModel"
+            type="activity.home.allsubservice.SubServiceAllViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="activity.home.allsubservice.SubServiceAllActivity"
+        tools:showIn="@layout/activity_sub_service_all">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:tabIndicatorColor="@color/white"
+            app:tabMode="scrollable"
+            android:visibility="@{subAllServiceViewModel.isDataEmpty ? View.GONE : View.VISIBLE}"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/transwhite"></com.google.android.material.tabs.TabLayout>
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tabLayout"
+            android:id="@+id/viewPager"></androidx.viewpager2.widget.ViewPager2>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="@font/txt_bold"
+            android:drawableTop="@drawable/nobooking"
+            android:textSize="@dimen/_17sdp"
+            android:visibility="@{subAllServiceViewModel.getIsDataEmpty() ? View.VISIBLE : View.GONE}"
+            android:layout_centerInParent="true"
+            android:text="No Data">
+        </androidx.appcompat.widget.AppCompatTextView>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/radio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginLeft="@dimen/_7sdp"
+        android:fontFamily="@font/txt_medium">
+    </androidx.appcompat.widget.AppCompatRadioButton>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtrs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_28sdp"
+        android:textSize="@dimen/_13sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:textColor="@android:color/holo_red_dark"
+        android:fontFamily="@font/txt_medium">
+    </androidx.appcompat.widget.AppCompatTextView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtdes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_28sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:textSize="@dimen/_11sdp">
+    </androidx.appcompat.widget.AppCompatTextView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/lightgrey"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp">
+    </View>
+
+</LinearLayout>
+</layout>
