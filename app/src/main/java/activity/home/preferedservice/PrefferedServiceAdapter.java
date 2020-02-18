@@ -1,6 +1,7 @@
 package activity.home.preferedservice;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import activity.home.ServicePackageActivity;
+import activity.home.servicepackage.ServicePackageActivity;
 import data.model.api.homepage.ServiceData;
 
 public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServiceAdapter.myview> {
@@ -65,7 +66,9 @@ public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServi
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(view.getContext(), ServicePackageActivity.class);
-            intent.putExtra("name",binding.txt.getText().toString());
+            intent.putExtra("name",list.get(getLayoutPosition()).getName());
+            intent.putExtra("id",list.get(getLayoutPosition()).getServiceId());
+            Log.w("preferred service id",String.valueOf(list.get(getLayoutPosition()).getServiceId()));
             view.getContext().startActivity(intent);
         }
     }

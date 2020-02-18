@@ -7,6 +7,7 @@ import java.util.List;
 import data.model.api.homepage.BannerData;
 import data.model.api.homepage.ServiceData;
 import data.model.api.login.User;
+import data.model.api.servicepackage.ServiceResult;
 import io.reactivex.Completable;
 import io.reactivex.SingleSource;
 
@@ -29,5 +30,7 @@ public interface DbHelper {
     SingleSource<ServiceData> saveServiceDatatoDb(List<ServiceData> serviceData);
 
     LiveData<List<ServiceData>> getAllServiceNameLive(int order,String id);
+
+    SingleSource<ServiceResult> saveServicePackagetoDb(List<ServiceResult> serviceResults);
 
 }

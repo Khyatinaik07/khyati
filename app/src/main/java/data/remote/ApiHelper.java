@@ -9,6 +9,7 @@ import data.model.api.homepage.ServiceResponse;
 import data.model.api.login.LoginRequest;
 import data.model.api.login.LoginResponse;
 import data.model.api.otpverify.UserLoginSuccessResponse;
+import data.model.api.servicepackage.ServicePackageResponse;
 import data.model.api.signUp.RegisterRequest;
 import io.reactivex.Single;
 
@@ -25,4 +26,6 @@ public interface ApiHelper {
     Single<BannerRespose> getBannerData();
 
     Single<ServiceResponse> getServiceData(String id);
+
+    Single<ServicePackageResponse> getServicePackageData(String id);
 }

@@ -32,6 +32,9 @@ import activity.home.homepagetab.HomePageTabProvider;
 import activity.home.preferedservice.PreferedServiceModule;
 import activity.home.preferedservice.PreferedServiceProvider;
 import activity.home.preferedservice.PrefferedServiceActivity;
+import activity.home.servicepackage.ServicePackageActivity;
+import activity.home.servicepackage.ServicePackageModule;
+import activity.home.servicepackage.ServicePackageProvider;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import fragment.homepage.HomePageFragment;
@@ -89,4 +92,7 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {PreferedServiceModule.class , PreferedServiceProvider.class})
     abstract PrefferedServiceActivity bindPrefferedServiceActivity();
+
+    @ContributesAndroidInjector(modules = {ServicePackageModule.class , ServicePackageProvider.class})
+    abstract ServicePackageActivity bindServicePackageActivity();
 }

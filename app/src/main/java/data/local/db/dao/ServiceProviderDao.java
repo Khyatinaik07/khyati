@@ -11,6 +11,7 @@ import java.util.List;
 import data.model.api.homepage.BannerData;
 import data.model.api.homepage.ServiceData;
 import data.model.api.login.User;
+import data.model.api.servicepackage.ServiceResult;
 
 @Dao
 public interface ServiceProviderDao {
@@ -38,4 +39,7 @@ public interface ServiceProviderDao {
 
     @Query("SELECT * FROM ServiceData WHERE parentId = :id ORDER BY CASE WHEN :order = 0 THEN sortOrderGrid END ASC")
     LiveData<List<ServiceData>> getAllServiceNameLive(int order,String id);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void saveServicePackageData(List<ServiceResult> serviceResults);
 }

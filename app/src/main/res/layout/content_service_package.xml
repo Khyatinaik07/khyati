@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:com.example.serviceprovider.app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="activity.home.ServicePackageActivity"
+    tools:context="activity.home.servicepackage.ServicePackageActivity"
     tools:showIn="@layout/activity_service_package">
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="servicePackageViewModel"
+            type="activity.home.servicepackage.ServicePackageViewModel" />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        com.example.serviceprovider.app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:orientation="vertical"
         android:focusable="true"
         android:focusableInTouchMode="true">

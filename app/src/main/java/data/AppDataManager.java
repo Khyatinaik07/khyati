@@ -27,6 +27,8 @@ import data.model.api.login.LoginRequest;
 import data.model.api.login.LoginResponse;
 import data.model.api.login.User;
 import data.model.api.otpverify.UserLoginSuccessResponse;
+import data.model.api.servicepackage.ServicePackageResponse;
+import data.model.api.servicepackage.ServiceResult;
 import data.model.api.signUp.RegisterRequest;
 import data.remote.ApiHelper;
 import io.reactivex.Completable;
@@ -153,7 +155,6 @@ public class AppDataManager implements DataManager {
         return getServiceData(id)
                 .map(serviceResponse -> {
                     if (serviceResponse.isError() && serviceResponse.getServiceData() != null) {
-                        Log.w("data","service data get");
                         saveServiceDatatoDb(serviceResponse.getServiceData());
                     }
                     else {
@@ -161,6 +162,22 @@ public class AppDataManager implements DataManager {
                     }
                     return serviceResponse;
 
+                });
+    }
+
+    @Override
+    public Single<ServicePackageResponse> fetchServicePackageandSave(String id) {
+        return getServicePackageData(id)
+                .map(servicePackageResponse -> {
+                    if (servicePackageResponse.isError() && servicePackageResponse.getResult() != null){
+                        Log.w("success","service package get");
+                        saveServicePackagetoDb(servicePackageResponse.getResult());
+                    }
+                    else
+                    {
+                        Log.e("error","service package data not get");
+                    }
+                    return servicePackageResponse;
                 });
     }
 
@@ -206,8 +223,12 @@ public class AppDataManager implements DataManager {
 
     @Override
     public Single<ServiceResponse> getServiceData(String id) {
-        Log.w("in app data","APPDATAMANAGER");
         return mApiHelper.getServiceData(id);
+    }
+
+    @Override
+    public Single<ServicePackageResponse> getServicePackageData(String id) {
+        return mApiHelper.getServicePackageData(id);
     }
 
 
@@ -279,6 +300,11 @@ public class AppDataManager implements DataManager {
     @Override
     public LiveData<List<ServiceData>> getAllServiceNameLive(int order,String id) {
         return mDbHelper.getAllServiceNameLive(order,id);
+    }
+
+    @Override
+    public SingleSource<ServiceResult> saveServicePackagetoDb(List<ServiceResult> serviceResults) {
+        return mDbHelper.saveServicePackagetoDb(serviceResults);
     }
 
     @Override

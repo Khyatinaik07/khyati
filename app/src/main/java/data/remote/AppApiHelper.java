@@ -1,7 +1,5 @@
 package data.remote;
 
-import android.util.Log;
-
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import javax.inject.Inject;
@@ -16,6 +14,7 @@ import data.model.api.homepage.ServiceResponse;
 import data.model.api.login.LoginRequest;
 import data.model.api.login.LoginResponse;
 import data.model.api.otpverify.UserLoginSuccessResponse;
+import data.model.api.servicepackage.ServicePackageResponse;
 import data.model.api.signUp.RegisterRequest;
 import io.reactivex.Single;
 import utils.CommonUtils;
@@ -24,6 +23,7 @@ import static data.remote.ApiEndPoints.ENDPOINT_BANNER_DATA;
 import static data.remote.ApiEndPoints.ENDPOINT_CHANGE_PASSWORD;
 import static data.remote.ApiEndPoints.ENDPOINT_EDIT_PROFILE;
 import static data.remote.ApiEndPoints.ENDPOINT_LOGIN;
+import static data.remote.ApiEndPoints.ENDPOINT_SERVICE_PACKAGE_DATA;
 import static data.remote.ApiEndPoints.ENDPOINT_SIGN_UP;
 import static data.remote.ApiEndPoints.ENDPONT_SERVICE_DATA;
 
@@ -84,11 +84,21 @@ public class AppApiHelper implements ApiHelper {
 
     @Override
     public Single<ServiceResponse> getServiceData(String id) {
-        Log.w("in app api","APPAPI");
         return Rx2AndroidNetworking
                 .post(ENDPONT_SERVICE_DATA)
                 .addBodyParameter("parent_id",id)
                 .build()
                 .getObjectSingle(ServiceResponse.class);
     }
+
+    @Override
+    public Single<ServicePackageResponse> getServicePackageData(String id) {
+        return Rx2AndroidNetworking
+                .post(ENDPOINT_SERVICE_PACKAGE_DATA)
+                .addBodyParameter("parent_id",id)
+                .build()
+                .getObjectSingle(ServicePackageResponse.class);
+    }
+
+
 }

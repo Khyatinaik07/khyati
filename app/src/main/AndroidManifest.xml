@@ -42,7 +42,7 @@
             android:label="@string/title_activity_membership"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="activity.home.ServicePackageActivity"
+            android:name="activity.home.servicepackage.ServicePackageActivity"
             android:label="@string/title_activity_service_package"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

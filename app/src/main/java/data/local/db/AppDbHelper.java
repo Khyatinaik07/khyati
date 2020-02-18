@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import data.model.api.homepage.BannerData;
 import data.model.api.homepage.ServiceData;
 import data.model.api.login.User;
+import data.model.api.servicepackage.ServiceResult;
 import io.reactivex.Completable;
 import io.reactivex.SingleSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -77,6 +78,12 @@ public class AppDbHelper implements DbHelper {
     @Override
     public LiveData<List<ServiceData>> getAllServiceNameLive(int order,String id) {
         return mAppDatabase.serviceProviderDao().getAllServiceNameLive(order,id);
+    }
+
+    @Override
+    public SingleSource<ServiceResult> saveServicePackagetoDb(List<ServiceResult> serviceResults) {
+        mAppDatabase.serviceProviderDao().saveServicePackageData(serviceResults);
+        return null;
     }
 
 }

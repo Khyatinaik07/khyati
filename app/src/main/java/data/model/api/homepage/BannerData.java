@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+import data.remote.ApiEndPoints;
+
 @Entity
 public class BannerData implements Serializable {
 
@@ -62,7 +64,7 @@ public class BannerData implements Serializable {
     }
 
     public void setImage(String image) {
-        this.image = "http://brss.in/jigar/serviceprovider/assets/General/images/"+image;
+        this.image = ApiEndPoints.IMAGE_BASE_URL +image;
     }
 
     public String getRedirectOn() {

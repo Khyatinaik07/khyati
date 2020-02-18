@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+import data.remote.ApiEndPoints;
+
 @Entity
 public class ServiceData implements Serializable {
 
@@ -105,7 +107,7 @@ public class ServiceData implements Serializable {
     }
 
     public void setIcon(String icon) {
-        this.icon = "http://brss.in/jigar/serviceprovider/assets/General/images/"+icon;
+        this.icon = ApiEndPoints.IMAGE_BASE_URL +icon;
     }
 
     public String getBanner() {
@@ -113,7 +115,7 @@ public class ServiceData implements Serializable {
     }
 
     public void setBanner(String banner) {
-        this.banner = "http://brss.in/jigar/serviceprovider/assets/General/images/"+banner;
+        this.banner = ApiEndPoints.IMAGE_BASE_URL+banner;
     }
 
     public String getSortOrderList() {
