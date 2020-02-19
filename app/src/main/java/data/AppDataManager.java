@@ -167,7 +167,7 @@ public class AppDataManager implements DataManager {
 
     @Override
     public Single<ServicePackageResponse> fetchServicePackageandSave(String id) {
-        return getServicePackageData(id)
+        return mApiHelper.getServicePackageData(id)
                 .map(servicePackageResponse -> {
                     if (servicePackageResponse.isError() && servicePackageResponse.getResult() != null){
                         Log.w("success","service package get");
@@ -303,8 +303,13 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public SingleSource<ServiceResult> saveServicePackagetoDb(List<ServiceResult> serviceResults) {
-        return mDbHelper.saveServicePackagetoDb(serviceResults);
+    public void saveServicePackagetoDb(List<ServiceResult> serviceResults) {
+        mDbHelper.saveServicePackagetoDb(serviceResults);
+    }
+
+    @Override
+    public LiveData<List<ServiceResult>> getServicePackageLive(String id) {
+        return mDbHelper.getServicePackageLive(id);
     }
 
     @Override

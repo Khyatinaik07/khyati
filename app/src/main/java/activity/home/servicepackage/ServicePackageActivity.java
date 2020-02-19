@@ -2,6 +2,7 @@ package activity.home.servicepackage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlineserviceportal.BR;
 import com.example.onlineserviceportal.R;
@@ -16,17 +18,19 @@ import com.example.onlineserviceportal.databinding.ActivityServicePackageBinding
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import activity.basic.BaseActivity;
 import activity.home.MembershipActivity;
+import data.model.api.servicepackage.ServiceResult;
 
 public class ServicePackageActivity extends BaseActivity<ActivityServicePackageBinding,ServicePackageViewModel> implements ServicePackageNavigator {
 
     ActivityServicePackageBinding binding;
     ServicePackageAdapter adapter;
-    Serializable i,id;
+    Serializable i,id,icon;
     String sid;
 
     @Inject
@@ -43,6 +47,7 @@ public class ServicePackageActivity extends BaseActivity<ActivityServicePackageB
 
         i = getIntent().getSerializableExtra("name");
         id = getIntent().getSerializableExtra("id");
+        icon = getIntent().getSerializableExtra("icon");
         sid = String.valueOf(id);
         getSupportActionBar().setTitle(i.toString());
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -52,6 +57,12 @@ public class ServicePackageActivity extends BaseActivity<ActivityServicePackageB
 
         getViewModel().setServicePackage(sid);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getViewModel().getDataManager().getServicePackageLive(sid).observe(this,getViewModel().listObserver);
     }
 
     @Override
@@ -102,8 +113,16 @@ public class ServicePackageActivity extends BaseActivity<ActivityServicePackageB
     private void setAdapter()
     {
         LinearLayoutManager l = new LinearLayoutManager(this);
+        l.setOrientation(RecyclerView.VERTICAL);
         binding.service.rv.setLayoutManager(l);
-        adapter = new ServicePackageAdapter(new ArrayList<>(),new ArrayList<>());
+        adapter = new ServicePackageAdapter(new ArrayList<>(),icon.toString());
         binding.service.rv.setAdapter(adapter);
+    }
+
+    @Override
+    public void onServicePackageSuccessfull(List<ServiceResult> serviceResults) {
+        getViewModel().setIsEmpty(serviceResults.isEmpty());
+        Log.e("empty","service package data empty"+serviceResults.isEmpty());
+        adapter.setList2(serviceResults);
     }
 }

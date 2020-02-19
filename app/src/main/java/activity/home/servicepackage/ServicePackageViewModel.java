@@ -2,9 +2,14 @@ package activity.home.servicepackage;
 
 import android.util.Log;
 
+import androidx.lifecycle.Observer;
+
+import java.util.List;
+
 import activity.basic.BaseViewModel;
 import data.DataManager;
 import data.model.api.servicepackage.ServicePackageResponse;
+import data.model.api.servicepackage.ServiceResult;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import utils.rx.SchedulerProvider;
@@ -14,6 +19,13 @@ public class ServicePackageViewModel extends BaseViewModel<ServicePackageNavigat
     public ServicePackageViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
     }
+
+    public Observer<List<ServiceResult>> listObserver = new Observer<List<ServiceResult>>() {
+        @Override
+        public void onChanged(List<ServiceResult> serviceResults) {
+            getNavigator().onServicePackageSuccessfull(serviceResults);
+        }
+    };
 
     public void setServicePackage(String id)
     {

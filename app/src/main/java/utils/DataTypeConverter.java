@@ -17,7 +17,7 @@ public class DataTypeConverter {
     private static Gson gson = new Gson();
 
     @TypeConverter
-    public static List<Image> ServicePackageImageToList(String data)
+    public static List<Image> ImageToList(String data)
     {
         if (data == null){
             return Collections.emptyList();
@@ -30,7 +30,7 @@ public class DataTypeConverter {
     }
 
     @TypeConverter
-    public static String ListToServicePackageImage(List<Image> images){
+    public static String ListToImage(List<Image> images){
         return gson.toJson(images);
     }
 
@@ -41,7 +41,7 @@ public class DataTypeConverter {
             return Collections.emptyList();
         }
 
-        Type listtype = new TypeToken<List<Image>>(){
+        Type listtype = new TypeToken<List<Specification>>(){
         }.getType();
 
         return gson.fromJson(data,listtype);

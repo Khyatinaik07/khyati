@@ -6,24 +6,27 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlineserviceportal.R;
 import com.example.onlineserviceportal.databinding.RowservicepackageBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import data.model.api.servicepackage.Image;
-import data.model.api.servicepackage.Specification;
+import data.model.api.servicepackage.ServiceResult;
 
 public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAdapter.myview> {
 
-    List<Image> list;
-    List<Specification> list2;
+    List<ServiceResult> list2;
+    String icon;
 
-    public ServicePackageAdapter(List<Image> list, List<Specification> list2) {
+    private LinearLayoutManager layoutManager;
 
-        this.list=list;
+    public ServicePackageAdapter(List<ServiceResult> list2, String icon) {
+
+        this.icon=icon;
         this.list2=list2;
     }
 
@@ -36,39 +39,50 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
 
     @Override
     public void onBindViewHolder(@NonNull final myview holder, final int position) {
-        //Specification data2 = list2.get(position);
-        //holder.binding.setSpecification(data2);
+
+        ServiceResult data2 = list2.get(position);
+        holder.binding.setServiceResult(data2);
+
+        holder.setData(list2);
+
     }
 
-    public void setList2(List<Specification> specifications)
+    public void setList2(List<ServiceResult> specifications)
     {
         this.list2 = specifications;
         notifyDataSetChanged();
-    }
 
-    public void setList(List<Image> images)
-    {
-        this.list=images;
-        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list2.size();
     }
 
     public class myview extends RecyclerView.ViewHolder implements View.OnClickListener
     {
+        SpecificationAdapter adapter = new SpecificationAdapter(new ArrayList<>(),icon);;
         RowservicepackageBinding binding;
         public myview(@NonNull View itemView) {
             super(itemView);
             binding = DataBindingUtil.bind(itemView);
             itemView.setOnClickListener(this);
+
+            layoutManager = new LinearLayoutManager(itemView.getContext());
+            layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+            binding.specificationrv.setLayoutManager(layoutManager);
+            binding.specificationrv.setAdapter(adapter);
+
+            binding.specificationrv.setNestedScrollingEnabled(false);
+        }
+
+        public void setData(List<ServiceResult> list) {
+            adapter.updateList(list);
         }
 
         @Override
         public void onClick(View view) {
-            notifyItemRangeChanged(0, list.size());
+            notifyItemRangeChanged(0, list2.size());
         }
     }
 }

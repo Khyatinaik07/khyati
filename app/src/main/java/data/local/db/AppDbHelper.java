@@ -81,9 +81,13 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
-    public SingleSource<ServiceResult> saveServicePackagetoDb(List<ServiceResult> serviceResults) {
+    public void saveServicePackagetoDb(List<ServiceResult> serviceResults) {
         mAppDatabase.serviceProviderDao().saveServicePackageData(serviceResults);
-        return null;
+    }
+
+    @Override
+    public LiveData<List<ServiceResult>> getServicePackageLive(String id) {
+        return mAppDatabase.serviceProviderDao().getServicePackageLive(id);
     }
 
 }

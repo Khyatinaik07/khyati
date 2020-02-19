@@ -7,20 +7,21 @@ import androidx.room.TypeConverters;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 import utils.DataTypeConverter;
 
 @Entity(tableName = "table_service_package")
-public class ServiceResult {
+public class ServiceResult implements Serializable {
 
-    @PrimaryKey
     @SerializedName("parent_id")
     @Expose
-    private int parentId;
+    private String parentId;
+    @PrimaryKey
     @SerializedName("service_id")
     @Expose
-    private String serviceId;
+    private int serviceId;
     @SerializedName("name")
     @Expose
     private String name;
@@ -40,24 +41,25 @@ public class ServiceResult {
     @SerializedName("images")
     @Expose
     private List<Image> images = null;
+
     @TypeConverters(DataTypeConverter.class)
     @SerializedName("specification")
     @Expose
     private List<Specification> specification = null;
 
-    public int getParentId() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 
-    public String getServiceId() {
+    public int getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(String serviceId) {
+    public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
     }
 

@@ -14,7 +14,7 @@ import data.model.api.servicepackage.ServiceResult;
         BannerData.class,
         ServiceData.class,
         ServiceResult.class
-},version = 10,exportSchema = false)
+},version = 12,exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract ServiceProviderDao serviceProviderDao();

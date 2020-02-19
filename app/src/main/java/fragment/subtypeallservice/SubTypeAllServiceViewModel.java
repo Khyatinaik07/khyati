@@ -55,6 +55,4 @@ public class SubTypeAllServiceViewModel extends BaseViewModel<SubTypeAllServiceN
         getCompositeDisposable().add(disposable);
 
     }
-
-
 }

@@ -42,4 +42,7 @@ public interface ServiceProviderDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void saveServicePackageData(List<ServiceResult> serviceResults);
+
+    @Query("SELECT * FROM table_service_package WHERE parentId= :id")
+    LiveData<List<ServiceResult>> getServicePackageLive(String id);
 }
