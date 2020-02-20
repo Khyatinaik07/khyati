@@ -9,8 +9,11 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.List;
 
-import data.model.api.servicepackage.Image;
-import data.model.api.servicepackage.Specification;
+import data.model.api.servicepackage1.ImageOne;
+import data.model.api.servicepackage1.SpecificationOne;
+import data.model.api.servicepackage2.Image;
+import data.model.api.servicepackage2.ServicePackage;
+import data.model.api.servicepackage2.Specification;
 
 public class DataTypeConverter {
 
@@ -51,6 +54,63 @@ public class DataTypeConverter {
     public static String ListToSpecification(List<Specification> specifications)
     {
         return gson.toJson(specifications);
+    }
+
+    @TypeConverter
+    public static List<ServicePackage> ServicePackageToList(String data)
+    {
+        if (data == null){
+            return Collections.emptyList();
+        }
+
+        Type list = new TypeToken<List<ServicePackage>>(){
+        }.getType();
+
+        return gson.fromJson(data,list);
+    }
+
+    @TypeConverter
+    public static String ListToServicePackage(List<ServicePackage> packages)
+    {
+        return gson.toJson(packages);
+    }
+
+    @TypeConverter
+    public static List<ImageOne> ImageOneToList(String data)
+    {
+        if (data == null){
+            return Collections.emptyList();
+        }
+
+        Type list = new TypeToken<List<ImageOne>>(){
+        }.getType();
+
+        return gson.fromJson(data,list);
+    }
+
+    @TypeConverter
+    public static String ListToImageOne(List<ImageOne> packages)
+    {
+        return gson.toJson(packages);
+    }
+
+    @TypeConverter
+    public static List<SpecificationOne> SpecificationOneToList(String data)
+    {
+        if (data == null){
+            return Collections.emptyList();
+        }
+
+        Type list = new TypeToken<List<SpecificationOne>>(){
+        }.getType();
+
+        return gson.fromJson(data,list);
+    }
+
+    @TypeConverter
+    public static String ListToSpecificationOne(List<SpecificationOne> packages)
+    {
+        return gson.toJson(packages);
     }
 
 }

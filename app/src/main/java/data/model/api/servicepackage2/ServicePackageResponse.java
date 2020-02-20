@@ -1,4 +1,4 @@
-package data.model.api.servicepackage;
+package data.model.api.servicepackage2;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

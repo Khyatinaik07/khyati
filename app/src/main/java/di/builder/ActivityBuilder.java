@@ -32,9 +32,15 @@ import activity.home.homepagetab.HomePageTabProvider;
 import activity.home.preferedservice.PreferedServiceModule;
 import activity.home.preferedservice.PreferedServiceProvider;
 import activity.home.preferedservice.PrefferedServiceActivity;
-import activity.home.servicepackage.ServicePackageActivity;
-import activity.home.servicepackage.ServicePackageModule;
-import activity.home.servicepackage.ServicePackageProvider;
+import activity.home.servicepackagelayout1.ServiceLayoutOneModule;
+import activity.home.servicepackagelayout1.ServiceLayoutOneProvider;
+import activity.home.servicepackagelayout1.ServicePackageLayoutOneActivity;
+import activity.home.servicepackagelayout2.ServicePackageActivity;
+import activity.home.servicepackagelayout2.ServicePackageModule;
+import activity.home.servicepackagelayout2.ServicePackageProvider;
+import activity.home.servicepackagelayout2.specificationdetail.SpecificationDetailActivity;
+import activity.home.servicepackagelayout2.specificationdetail.SpecificationDetailModule;
+import activity.home.servicepackagelayout2.specificationdetail.SpecificationDetailProvider;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import fragment.homepage.HomePageFragment;
@@ -95,4 +101,10 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {ServicePackageModule.class , ServicePackageProvider.class})
     abstract ServicePackageActivity bindServicePackageActivity();
+
+    @ContributesAndroidInjector(modules = {SpecificationDetailModule.class , SpecificationDetailProvider.class})
+    abstract SpecificationDetailActivity bindSpecificationDetailActivity();
+
+    @ContributesAndroidInjector(modules = {ServiceLayoutOneModule.class, ServiceLayoutOneProvider.class})
+    abstract ServicePackageLayoutOneActivity bindServicePackageLayoutOneActivity();
 }

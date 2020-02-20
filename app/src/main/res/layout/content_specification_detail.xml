@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="activity.home.servicepackagelayout2.specificationdetail.SpecificationDetailActivity"
+    tools:showIn="@layout/activity_specification_detail">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="specificationDetailViewModel"
+            type="activity.home.servicepackagelayout2.specificationdetail.SpecificationDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:padding="@dimen/_8sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
+            android:id="@+id/titleimage">
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/titleimage"
+            app:layout_constraintLeft_toRightOf="@+id/imgprofile"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/txt_bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/person">
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/profile"
+            android:id="@+id/imgprofile"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@+id/titleimage"
+            app:layout_constraintLeft_toLeftOf="parent">
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/payment"
+            app:layout_constraintTop_toBottomOf="@+id/person"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/imgrs">
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/person"
+            app:layout_constraintLeft_toRightOf="@+id/imgrs"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/txt_medium"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/amount">
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/amount"
+            android:layout_marginLeft="@dimen/_15sdp"
+            app:layout_constraintLeft_toRightOf="@+id/imgtime"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/time">
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/imgtime"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/clock"
+            app:layout_constraintTop_toBottomOf="@+id/amount"
+            app:layout_constraintLeft_toLeftOf="parent">
+        </androidx.appcompat.widget.AppCompatImageView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/subtitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+        </androidx.appcompat.widget.AppCompatTextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

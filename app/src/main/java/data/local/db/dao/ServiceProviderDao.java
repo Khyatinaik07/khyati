@@ -11,7 +11,7 @@ import java.util.List;
 import data.model.api.homepage.BannerData;
 import data.model.api.homepage.ServiceData;
 import data.model.api.login.User;
-import data.model.api.servicepackage.ServiceResult;
+import data.model.api.servicepackage2.ServiceResult;
 
 @Dao
 public interface ServiceProviderDao {

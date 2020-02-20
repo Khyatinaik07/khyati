@@ -1,4 +1,4 @@
-package data.model.api.servicepackage;
+package data.model.api.servicepackage2;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -37,6 +37,9 @@ public class ServiceResult implements Serializable {
     @SerializedName("status")
     @Expose
     private String status;
+    @TypeConverters(DataTypeConverter.class)
+    @SerializedName("packages")
+    private List<ServicePackage> packages = null;
     @TypeConverters(DataTypeConverter.class)
     @SerializedName("images")
     @Expose
@@ -101,6 +104,15 @@ public class ServiceResult implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<ServicePackage> getPackages(){
+        return packages;
+    }
+
+    public void setPackages(List<ServicePackage> packages)
+    {
+        this.packages=packages;
     }
 
     public List<Image> getImages() {

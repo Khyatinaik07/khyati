@@ -1,4 +1,4 @@
-package activity.home.servicepackage;
+package activity.home.servicepackagelayout2;
 
 import androidx.lifecycle.ViewModelProvider;
 

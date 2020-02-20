@@ -1,4 +1,4 @@
-package activity.home.servicepackage;
+package activity.home.servicepackagelayout2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +24,7 @@ import javax.inject.Inject;
 
 import activity.basic.BaseActivity;
 import activity.home.MembershipActivity;
-import data.model.api.servicepackage.ServiceResult;
+import data.model.api.servicepackage2.ServiceResult;
 
 public class ServicePackageActivity extends BaseActivity<ActivityServicePackageBinding,ServicePackageViewModel> implements ServicePackageNavigator {
 

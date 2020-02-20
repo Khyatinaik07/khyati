@@ -99,6 +99,7 @@
 
     <string name="title_activity_service_package">ServicePackageActivity</string>
     <string name="selectpackage">Please select your package:</string>
+    <string name="view_all">View Details</string>
 
     <string name="title_activity_membership">MembershipActivity</string>
     <string name="selectmembership">Select Membership Package: </string>
@@ -129,5 +130,7 @@
 
     <string name="title_activity_change_password">ChangePasswordActivity</string>
     <string name="title">Change Password</string>
+    <string name="title_activity_specification_detail">SpecificationDetailActivity</string>
+    <string name="title_activity_service_package_layout2">ServicePAckageLayout2Activity</string>
 
 </resources>

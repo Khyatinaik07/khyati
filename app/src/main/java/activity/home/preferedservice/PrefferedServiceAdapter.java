@@ -16,7 +16,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import activity.home.servicepackage.ServicePackageActivity;
+import activity.home.servicepackagelayout1.ServicePackageLayoutOneActivity;
+import activity.home.servicepackagelayout2.ServicePackageActivity;
 import data.model.api.homepage.ServiceData;
 
 public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServiceAdapter.myview> {
@@ -65,12 +66,23 @@ public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServi
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(view.getContext(), ServicePackageActivity.class);
-            intent.putExtra("name",list.get(getLayoutPosition()).getName());
-            intent.putExtra("id",list.get(getLayoutPosition()).getServiceId());
-            intent.putExtra("icon",list.get(getLayoutPosition()).getIcon());
-            Log.w("preferred service id",String.valueOf(list.get(getLayoutPosition()).getServiceId()));
-            view.getContext().startActivity(intent);
+
+            if (list.get(getLayoutPosition()).getType().equalsIgnoreCase("layout2"))
+            {
+                Intent intent = new Intent(view.getContext(), ServicePackageActivity.class);
+                intent.putExtra("name",list.get(getLayoutPosition()).getName());
+                intent.putExtra("id",list.get(getLayoutPosition()).getServiceId());
+                intent.putExtra("icon",list.get(getLayoutPosition()).getIcon());
+                Log.w("preferred service id",String.valueOf(list.get(getLayoutPosition()).getServiceId()));
+                view.getContext().startActivity(intent);
+            }
+            else if (list.get(getLayoutPosition()).getType().equalsIgnoreCase("layout1"))
+            {
+                Intent i = new Intent(view.getContext(), ServicePackageLayoutOneActivity.class);
+                i.putExtra("name",list.get(getLayoutPosition()).getName());
+                i.putExtra("id",list.get(getLayoutPosition()).getServiceId());
+                view.getContext().startActivity(i);
+            }
         }
     }
 }

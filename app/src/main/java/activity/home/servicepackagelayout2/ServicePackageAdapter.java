@@ -1,4 +1,4 @@
-package activity.home.servicepackage;
+package activity.home.servicepackagelayout2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlineserviceportal.R;
 import com.example.onlineserviceportal.databinding.RowservicepackageBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import data.model.api.servicepackage.ServiceResult;
+import data.model.api.servicepackage2.ServiceResult;
 
 public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAdapter.myview> {
 
     List<ServiceResult> list2;
     String icon;
+    SpecificationAdapter adapter;
 
     private LinearLayoutManager layoutManager;
 
@@ -43,7 +43,10 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
         ServiceResult data2 = list2.get(position);
         holder.binding.setServiceResult(data2);
 
-        holder.setData(list2);
+        adapter = new SpecificationAdapter(list2.get(position),list2.get(position).getSpecification(),icon);
+        holder.binding.specificationrv.setAdapter(adapter);
+
+      //  holder.setData(list2.get(position).getSpecification());
 
     }
 
@@ -61,7 +64,6 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
 
     public class myview extends RecyclerView.ViewHolder implements View.OnClickListener
     {
-        SpecificationAdapter adapter = new SpecificationAdapter(new ArrayList<>(),icon);;
         RowservicepackageBinding binding;
         public myview(@NonNull View itemView) {
             super(itemView);
@@ -71,14 +73,10 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
             layoutManager = new LinearLayoutManager(itemView.getContext());
             layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             binding.specificationrv.setLayoutManager(layoutManager);
-            binding.specificationrv.setAdapter(adapter);
 
             binding.specificationrv.setNestedScrollingEnabled(false);
         }
 
-        public void setData(List<ServiceResult> list) {
-            adapter.updateList(list);
-        }
 
         @Override
         public void onClick(View view) {

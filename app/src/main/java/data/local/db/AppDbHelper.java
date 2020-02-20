@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import data.model.api.homepage.BannerData;
 import data.model.api.homepage.ServiceData;
 import data.model.api.login.User;
-import data.model.api.servicepackage.ServiceResult;
+import data.model.api.servicepackage2.ServiceResult;
 import io.reactivex.Completable;
 import io.reactivex.SingleSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;

@@ -1,11 +1,9 @@
-package data.model.api.servicepackage;
+package data.model.api.servicepackage1;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import data.remote.ApiEndPoints;
-
-public class Image {
+public class ImageOne {
 
     @SerializedName("image_id")
     @Expose
@@ -33,7 +31,7 @@ public class Image {
     }
 
     public void setImage(String image) {
-        this.image = ApiEndPoints.IMAGE_BASE_URL+image;
+        this.image = image;
     }
 
     public String getSortOrder() {
@@ -52,5 +50,5 @@ public class Image {
         this.status = status;
     }
 
-
 }
+

@@ -25,10 +25,17 @@
         android:usesCleartextTraffic="${usesCleartextTraffic}"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name="activity.home.servicepackagelayout1.ServicePackageLayoutOneActivity"
+            android:label="@string/title_activity_service_package_layout2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="activity.home.servicepackagelayout2.specificationdetail.SpecificationDetailActivity"
+            android:label="@string/title_activity_specification_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="activity.home.changePassword.ChangePasswordActivity"
             android:label="@string/title_activity_change_password"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.authentication.otpverify.VerifyOTPActivity"
             android:label="@string/title_activity_verify_otp"
@@ -42,7 +49,7 @@
             android:label="@string/title_activity_membership"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="activity.home.servicepackage.ServicePackageActivity"
+            android:name="activity.home.servicepackagelayout2.ServicePackageActivity"
             android:label="@string/title_activity_service_package"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -98,13 +105,12 @@
         <activity
             android:name="activity.authentication.registration.RegistrationActivity"
             android:label="@string/title_activity_registration"
-            android:windowSoftInputMode="adjustNothing"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="activity.authentication.login.LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="activity.basic.BaseActivity" />
         <activity
             android:name="activity.basic.MainActivity"

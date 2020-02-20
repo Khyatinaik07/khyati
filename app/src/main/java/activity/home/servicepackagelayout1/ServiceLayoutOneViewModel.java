@@ -1,4 +1,4 @@
-package activity.home.servicepackage;
+package activity.home.servicepackagelayout1;
 
 import android.util.Log;
 
@@ -8,15 +8,15 @@ import java.util.List;
 
 import activity.basic.BaseViewModel;
 import data.DataManager;
-import data.model.api.servicepackage.ServicePackageResponse;
-import data.model.api.servicepackage.ServiceResult;
+import data.model.api.servicepackage2.ServicePackageResponse;
+import data.model.api.servicepackage2.ServiceResult;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import utils.rx.SchedulerProvider;
 
-public class ServicePackageViewModel extends BaseViewModel<ServicePackageNavigator> {
+public class ServiceLayoutOneViewModel extends BaseViewModel<ServiceLayoutOneNavigator> {
 
-    public ServicePackageViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+    public ServiceLayoutOneViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
     }
 
@@ -27,7 +27,7 @@ public class ServicePackageViewModel extends BaseViewModel<ServicePackageNavigat
         }
     };
 
-    public void setServicePackage(String id)
+    public void getService(String id)
     {
         getNavigator().showLoading();
 

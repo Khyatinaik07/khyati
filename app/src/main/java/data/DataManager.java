@@ -8,7 +8,7 @@ import data.model.api.homepage.BannerRespose;
 import data.model.api.homepage.ServiceResponse;
 import data.model.api.login.User;
 import data.model.api.otpverify.UserLoginSuccessResponse;
-import data.model.api.servicepackage.ServicePackageResponse;
+import data.model.api.servicepackage2.ServicePackageResponse;
 import data.model.api.signUp.RegisterRequest;
 import data.remote.ApiHelper;
 import io.reactivex.Single;
@@ -26,4 +26,5 @@ public interface DataManager extends DbHelper , PreferencesHelper,ApiHelper {
     Single<ServiceResponse> fetchServiceDataandSave(String id);
 
     Single<ServicePackageResponse> fetchServicePackageandSave(String id);
+
 }

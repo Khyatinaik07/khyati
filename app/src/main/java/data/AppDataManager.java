@@ -27,8 +27,8 @@ import data.model.api.login.LoginRequest;
 import data.model.api.login.LoginResponse;
 import data.model.api.login.User;
 import data.model.api.otpverify.UserLoginSuccessResponse;
-import data.model.api.servicepackage.ServicePackageResponse;
-import data.model.api.servicepackage.ServiceResult;
+import data.model.api.servicepackage2.ServicePackageResponse;
+import data.model.api.servicepackage2.ServiceResult;
 import data.model.api.signUp.RegisterRequest;
 import data.remote.ApiHelper;
 import io.reactivex.Completable;
@@ -180,7 +180,6 @@ public class AppDataManager implements DataManager {
                     return servicePackageResponse;
                 });
     }
-
 
     @Override
     public Single<LoginResponse> loginUser(LoginRequest loginRequest) {

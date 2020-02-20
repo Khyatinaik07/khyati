@@ -1,5 +1,6 @@
-package activity.home.servicepackage;
+package activity.home.servicepackagelayout2;
 
+import android.content.Intent;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +16,20 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import data.model.api.servicepackage.ServiceResult;
+import activity.home.servicepackagelayout2.specificationdetail.SpecificationDetailActivity;
+import data.model.api.servicepackage2.ServiceResult;
+import data.model.api.servicepackage2.Specification;
 
 public class SpecificationAdapter extends RecyclerView.Adapter<SpecificationAdapter.specmyview>  {
 
-    List<ServiceResult> serviceResults;
+    List<Specification> serviceResults;
     String icon;
+    ServiceResult sr;
 
-    public SpecificationAdapter(List<ServiceResult> serviceResults,String icon) {
+    public SpecificationAdapter(ServiceResult serviceResult, List<Specification> serviceResults, String icon) {
         this.serviceResults= serviceResults;
         this.icon=icon;
+        this.sr=serviceResult;
     }
 
     @NonNull
@@ -36,14 +41,13 @@ public class SpecificationAdapter extends RecyclerView.Adapter<SpecificationAdap
 
     @Override
     public void onBindViewHolder(@NonNull specmyview holder, int position) {
-        ServiceResult data2 = serviceResults.get(position);
-        holder.binding.setServiceResult(data2);
 
-       /* Specification specification = data2.getSpecification().get(position);
-        holder.binding.setSpecification(specification);  */
+        Specification specification = serviceResults.get(position);
+        holder.binding.setServiceResult(specification);
 
         Picasso.with(holder.binding.img.getContext()).load(icon).into(holder.binding.img);
-        holder.binding.subtitle.setText(Html.fromHtml(data2.getSubTitle()));
+        holder.binding.subtitle.setText(Html.fromHtml(sr.getSubTitle()));
+        Picasso.with(holder.binding.img2.getContext()).load(icon).into(holder.binding.img2);
 
         if (position==0)
         {
@@ -52,7 +56,6 @@ public class SpecificationAdapter extends RecyclerView.Adapter<SpecificationAdap
 
         if (position > 0)
         {
-            Picasso.with(holder.binding.img2.getContext()).load(icon).into(holder.binding.img2);
             holder.binding.subtitle.setVisibility(View.GONE);
             holder.binding.img.setVisibility(View.GONE);
             holder.binding.img2.setVisibility(View.VISIBLE);
@@ -64,23 +67,30 @@ public class SpecificationAdapter extends RecyclerView.Adapter<SpecificationAdap
         return super.getItemId(position);
     }
 
-    public void updateList(List<ServiceResult> list) {
-        this.serviceResults = list;
-        notifyDataSetChanged();
-    }
-
     @Override
     public int getItemCount() {
         return serviceResults.size();
     }
 
-    public class specmyview extends RecyclerView.ViewHolder{
+    public class specmyview extends RecyclerView.ViewHolder {
 
         RowspecificationBinding binding;
 
         public specmyview(@NonNull View itemView) {
             super(itemView);
             binding= DataBindingUtil.bind(itemView);
+            binding.conViewDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(view.getContext(), SpecificationDetailActivity.class);
+                    i.putExtra("person",binding.person.getText());
+                    i.putExtra("amount",binding.price.getText());
+                    i.putExtra("time",binding.time.getText());
+                    i.putExtra("subtitle",sr.getSubTitle());
+                    i.putExtra("icon",icon);
+                    view.getContext().startActivity(i);
+                }
+            });
         }
     }
 }
