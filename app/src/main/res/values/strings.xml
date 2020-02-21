@@ -131,6 +131,9 @@
     <string name="title_activity_change_password">ChangePasswordActivity</string>
     <string name="title">Change Password</string>
     <string name="title_activity_specification_detail">SpecificationDetailActivity</string>
+
     <string name="title_activity_service_package_layout2">ServicePAckageLayout2Activity</string>
+    <string name="edit_package">Edit Package</string>
+    <string name="title_activity_edit_package">EditPackageActivity</string>
 
 </resources>

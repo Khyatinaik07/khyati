@@ -3,9 +3,11 @@ package data.model.api.servicepackage2;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 import data.remote.ApiEndPoints;
 
-public class Image {
+public class ImageResult implements Serializable {
 
     @SerializedName("image_id")
     @Expose
@@ -28,12 +30,12 @@ public class Image {
         this.imageId = imageId;
     }
 
-    public String getImage() {
-        return image;
+    public void setImage(String image) {
+        this.image = ApiEndPoints.IMAGE_BASE_URL + image;
     }
 
-    public void setImage(String image) {
-        this.image = ApiEndPoints.IMAGE_BASE_URL+image;
+    public String getImage() {
+        return image;
     }
 
     public String getSortOrder() {
@@ -51,6 +53,5 @@ public class Image {
     public void setStatus(String status) {
         this.status = status;
     }
-
 
 }

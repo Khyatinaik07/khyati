@@ -23,7 +23,7 @@ import data.model.api.servicepackage2.ServiceResult;
 public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServicePackageLayout1Binding, ServiceLayoutOneViewModel> implements ServiceLayoutOneNavigator {
 
     ActivityServicePackageLayout1Binding binding;
-    Serializable id,name;
+    Serializable id,name,icon;
     ServiceLayoutOneAdapter adapter;
 
     @Inject
@@ -36,10 +36,11 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
         binding = getViewDataBinding();
         setSupportActionBar(binding.toolbar);
 
-        setAdapter();
-
         id = getIntent().getSerializableExtra("id");
         name = getIntent().getSerializableExtra("name");
+        icon = getIntent().getSerializableExtra("icon");
+
+        setAdapter();
 
         getSupportActionBar().setTitle(name.toString());
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -91,7 +92,7 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
     {
         LinearLayoutManager l = new LinearLayoutManager(getApplicationContext());
         binding.service.rv.setLayoutManager(l);
-        adapter = new ServiceLayoutOneAdapter(new ArrayList<>());
+        adapter = new ServiceLayoutOneAdapter(new ArrayList<>(),icon.toString());
         binding.service.rv.setAdapter(adapter);
     }
 

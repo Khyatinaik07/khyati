@@ -35,6 +35,9 @@ import activity.home.preferedservice.PrefferedServiceActivity;
 import activity.home.servicepackagelayout1.ServiceLayoutOneModule;
 import activity.home.servicepackagelayout1.ServiceLayoutOneProvider;
 import activity.home.servicepackagelayout1.ServicePackageLayoutOneActivity;
+import activity.home.servicepackagelayout1.editpackage.EditPackageActivity;
+import activity.home.servicepackagelayout1.editpackage.EditPackageModule;
+import activity.home.servicepackagelayout1.editpackage.EditPackageProvider;
 import activity.home.servicepackagelayout2.ServicePackageActivity;
 import activity.home.servicepackagelayout2.ServicePackageModule;
 import activity.home.servicepackagelayout2.ServicePackageProvider;
@@ -107,4 +110,7 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {ServiceLayoutOneModule.class, ServiceLayoutOneProvider.class})
     abstract ServicePackageLayoutOneActivity bindServicePackageLayoutOneActivity();
+
+    @ContributesAndroidInjector(modules = {EditPackageModule.class , EditPackageProvider.class})
+    abstract EditPackageActivity bindEditPackageActivity();
 }

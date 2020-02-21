@@ -38,10 +38,21 @@
         android:layout_marginTop="@dimen/_5sdp">
     </androidx.recyclerview.widget.RecyclerView>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/imgrv"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:scaleType="centerCrop"
+        android:id="@+id/img">
+    </androidx.appcompat.widget.AppCompatImageView>
+
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/imgrv"
+        app:layout_constraintTop_toBottomOf="@+id/img"
         android:layout_marginTop="@dimen/_5sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="@dimen/_15sdp"
@@ -90,6 +101,42 @@
         app:layout_constraintTop_toBottomOf="@+id/imgtime"
         android:layout_marginTop="@dimen/_5sdp">
     </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/conedit"
+        app:layout_constraintTop_toBottomOf="@+id/rvspec"
+        android:layout_marginTop="@dimen/_4sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/lightpink"
+        android:padding="@dimen/_5sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/txt_bold"
+            android:text="@string/edit_package"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/conedit"
+            android:id="@+id/edit"
+            android:textColor="@color/colorAccent">
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/next"
+            android:tint="@color/colorAccent"
+            app:layout_constraintTop_toTopOf="@+id/edit"
+            app:layout_constraintBottom_toBottomOf="@+id/edit"
+            app:layout_constraintLeft_toRightOf="@+id/edit">
+        </androidx.appcompat.widget.AppCompatImageView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

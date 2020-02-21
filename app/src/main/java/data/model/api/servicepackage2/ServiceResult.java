@@ -1,5 +1,8 @@
 package data.model.api.servicepackage2;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
@@ -13,7 +16,9 @@ import java.util.List;
 import utils.DataTypeConverter;
 
 @Entity(tableName = "table_service_package")
-public class ServiceResult implements Serializable {
+public class ServiceResult implements Serializable, Parcelable {
+
+    public ServiceResult(){}
 
     @SerializedName("parent_id")
     @Expose
@@ -43,7 +48,7 @@ public class ServiceResult implements Serializable {
     @TypeConverters(DataTypeConverter.class)
     @SerializedName("images")
     @Expose
-    private List<Image> images = null;
+    private List<ImageResult> images = null;
 
     @TypeConverters(DataTypeConverter.class)
     @SerializedName("specification")
@@ -115,11 +120,11 @@ public class ServiceResult implements Serializable {
         this.packages=packages;
     }
 
-    public List<Image> getImages() {
+    public List<ImageResult> getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(List<ImageResult> images) {
         this.images = images;
     }
 
@@ -129,5 +134,43 @@ public class ServiceResult implements Serializable {
 
     public void setSpecification(List<Specification> specification) {
         this.specification = specification;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(parentId);
+        parcel.writeInt(serviceId);
+        parcel.writeString(title);
+        parcel.writeString(subTitle);
+        parcel.writeString(name);
+        parcel.writeString(sortOrderList);
+        parcel.writeString(status);
+    }
+
+    public static final Creator<ServiceResult> CREATOR = new Creator<ServiceResult>() {
+        @Override
+        public ServiceResult createFromParcel(Parcel in) {
+            return new ServiceResult(in);
+        }
+
+        @Override
+        public ServiceResult[] newArray(int size) {
+            return new ServiceResult[size];
+        }
+    };
+
+    protected ServiceResult(Parcel in){
+        parentId = in.readString();
+        serviceId = in.readInt();
+        name = in.readString();
+        title = in.readString();
+        subTitle = in.readString();
+        sortOrderList = in.readString();
+        status = in.readString();
     }
 }

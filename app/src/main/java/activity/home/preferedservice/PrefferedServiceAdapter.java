@@ -81,6 +81,7 @@ public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServi
                 Intent i = new Intent(view.getContext(), ServicePackageLayoutOneActivity.class);
                 i.putExtra("name",list.get(getLayoutPosition()).getName());
                 i.putExtra("id",list.get(getLayoutPosition()).getServiceId());
+                i.putExtra("icon",list.get(getLayoutPosition()).getIcon());
                 view.getContext().startActivity(i);
             }
         }

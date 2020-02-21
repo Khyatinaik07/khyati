@@ -11,7 +11,7 @@ import java.util.List;
 
 import data.model.api.servicepackage1.ImageOne;
 import data.model.api.servicepackage1.SpecificationOne;
-import data.model.api.servicepackage2.Image;
+import data.model.api.servicepackage2.ImageResult;
 import data.model.api.servicepackage2.ServicePackage;
 import data.model.api.servicepackage2.Specification;
 
@@ -20,20 +20,20 @@ public class DataTypeConverter {
     private static Gson gson = new Gson();
 
     @TypeConverter
-    public static List<Image> ImageToList(String data)
+    public static List<ImageResult> ImageResultToList(String data)
     {
         if (data == null){
             return Collections.emptyList();
         }
 
-        Type listtype = new TypeToken<List<Image>>(){
+        Type listtype = new TypeToken<List<ImageResult>>(){
         }.getType();
 
         return gson.fromJson(data,listtype);
     }
 
     @TypeConverter
-    public static String ListToImage(List<Image> images){
+    public static String ListToImageResult(List<ImageResult> images){
         return gson.toJson(images);
     }
 

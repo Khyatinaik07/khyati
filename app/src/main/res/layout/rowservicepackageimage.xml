@@ -6,7 +6,7 @@
         <import type="android.view.View"></import>
         <variable
             name="image"
-            type="data.model.api.servicepackage2.Image" />
+            type="data.model.api.servicepackage2.ImageResult" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +28,6 @@
                 android:layout_height="@dimen/_100sdp"
                 android:id="@+id/img"
                 android:adjustViewBounds="true"
-                android:src="@drawable/clock"
                 android:scaleType="centerCrop"></androidx.appcompat.widget.AppCompatImageView>
 
         </androidx.cardview.widget.CardView>

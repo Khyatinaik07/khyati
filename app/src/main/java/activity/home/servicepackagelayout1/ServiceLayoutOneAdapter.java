@@ -1,5 +1,6 @@
 package activity.home.servicepackagelayout1;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlineserviceportal.R;
 import com.example.onlineserviceportal.databinding.Rowservicepackagelayout1Binding;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import activity.home.servicepackagelayout1.editpackage.EditPackageActivity;
 import activity.home.servicepackagelayout2.ServicePackageImageAdapter;
 import data.model.api.servicepackage2.ServiceResult;
 
@@ -22,9 +25,12 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
 
     private List<ServiceResult> list;
     ServicePackageImageAdapter adapter;
+    ServicePackagePackageAdapter packageAdapter;
+    private String icon;
 
-    public ServiceLayoutOneAdapter(ArrayList<ServiceResult> serviceResults) {
+    public ServiceLayoutOneAdapter(ArrayList<ServiceResult> serviceResults,String icon) {
         this.list = serviceResults;
+        this.icon=icon;
     }
 
     @NonNull
@@ -39,9 +45,23 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
         ServiceResult data = list.get(position);
         holder.binding.setServiceResult(data);
 
-        adapter = new ServicePackageImageAdapter(list.get(position).getImages());
+        adapter = new ServicePackageImageAdapter(list.get(position).getImages(),icon);
         holder.binding.imgrv.setAdapter(adapter);
 
+        if (list.get(position).getImages().size() == 0)
+        {
+            holder.binding.imgrv.setVisibility(View.GONE);
+            holder.binding.img.setVisibility(View.VISIBLE);
+            Picasso.with(holder.binding.img.getContext()).load(icon).into(holder.binding.img);
+        }
+
+        packageAdapter = new ServicePackagePackageAdapter(list.get(position).getPackages());
+        holder.binding.rvspec.setAdapter(packageAdapter);
+
+        if (data.getSubTitle().isEmpty())
+        {
+            holder.binding.subtitle.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -66,9 +86,23 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
             LinearLayoutManager l = new LinearLayoutManager(itemView.getContext());
             l.setOrientation(RecyclerView.HORIZONTAL);
             binding.imgrv.setLayoutManager(l);
-
             binding.imgrv.setNestedScrollingEnabled(false);
+
+            LinearLayoutManager l2 = new LinearLayoutManager(itemView.getContext());
+            binding.rvspec.setLayoutManager(l2);
+            binding.rvspec.setNestedScrollingEnabled(false);
+
+            binding.conedit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(view.getContext(), EditPackageActivity.class);
+                    i.putExtra("serviceid",list.get(getLayoutPosition()).getParentId());
+                    i.putExtra("icon",icon);
+                    i.putExtra("position",getLayoutPosition());
+                    //Log.w("service id",String.valueOf(list.get(getLayoutPosition()).getParentId()));
+                    view.getContext().startActivity(i);
+                }
+            });
         }
     }
-
 }

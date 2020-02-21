@@ -1,6 +1,5 @@
 package activity.home.servicepackagelayout2;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +14,17 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import data.model.api.servicepackage2.Image;
+import data.model.api.servicepackage2.ImageResult;
+import data.remote.ApiEndPoints;
 
 public class ServicePackageImageAdapter extends RecyclerView.Adapter<ServicePackageImageAdapter.myview> {
 
-    private List<Image> images;
+    private List<ImageResult> images;
+    private String icon;
 
-    public ServicePackageImageAdapter(List<Image> images) {
+    public ServicePackageImageAdapter(List<ImageResult> images,String icon) {
         this.images = images;
+        this.icon=icon;
     }
 
     @NonNull
@@ -34,11 +36,10 @@ public class ServicePackageImageAdapter extends RecyclerView.Adapter<ServicePack
 
     @Override
     public void onBindViewHolder(@NonNull myview holder, int position) {
-        Image image = images.get(position);
+        ImageResult image = images.get(position);
         holder.binding.setImage(image);
 
-        Picasso.with(holder.binding.img.getContext()).load(image.getImage()).into(holder.binding.img);
-        Log.w("image",image.getImage());
+        Picasso.with(holder.binding.img.getContext()).load(ApiEndPoints.IMAGE_BASE_URL+image.getImage()).into(holder.binding.img);
     }
 
     @Override
@@ -55,5 +56,4 @@ public class ServicePackageImageAdapter extends RecyclerView.Adapter<ServicePack
             binding = DataBindingUtil.bind(itemView);
         }
     }
-
 }
