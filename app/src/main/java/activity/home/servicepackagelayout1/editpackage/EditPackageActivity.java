@@ -26,7 +26,7 @@ import data.model.api.servicepackage2.ServiceResult;
 public class EditPackageActivity extends BaseActivity<ActivityEditPackageBinding,EditPackageViewModel> implements EditPackageNavigator {
 
     ActivityEditPackageBinding binding;
-    Serializable serviceid,icon,position;
+    Serializable serviceid,icon,position,id,name;
     EditPackageAdapter adapter;
     ServicePackageImageAdapter imageAdapter;
 
@@ -39,30 +39,34 @@ public class EditPackageActivity extends BaseActivity<ActivityEditPackageBinding
         binding = getViewDataBinding();
         setSupportActionBar(binding.toolbar);
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         serviceid = getIntent().getSerializableExtra("serviceid");
         icon = getIntent().getSerializableExtra("icon");
         position = getIntent().getSerializableExtra("position");
+        id = getIntent().getSerializableExtra("id");
+        name = getIntent().getSerializableExtra("name");
+
+        getSupportActionBar().setTitle(name.toString());
 
         setAdapter();
 
         getViewModel().getDataManager().getServicePackageLive(serviceid.toString()).observe(this, new Observer<List<ServiceResult>>() {
             @Override
             public void onChanged(List<ServiceResult> serviceResults) {
-                getViewModel().setIsEmpty(serviceResults.isEmpty());
-                adapter.setServiceResults(serviceResults);
                 imageAdapter = new ServicePackageImageAdapter(serviceResults.get(Integer.valueOf(position.toString())).getImages(),icon.toString());
                 binding.edit.imgrv.setAdapter(imageAdapter);
             }
         });
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+        getViewModel().getDataManager().getServiceNameLive(id.toString()).observe(this, new Observer<List<ServiceResult>>() {
+            @Override
+            public void onChanged(List<ServiceResult> serviceResults) {
+                getViewModel().setIsEmpty(serviceResults.isEmpty());
+                adapter.setServiceResults(serviceResults);
+            }
+        });
     }
 
     @Override

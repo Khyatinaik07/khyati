@@ -98,8 +98,9 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
                     Intent i = new Intent(view.getContext(), EditPackageActivity.class);
                     i.putExtra("serviceid",list.get(getLayoutPosition()).getParentId());
                     i.putExtra("icon",icon);
+                    i.putExtra("id",list.get(getLayoutPosition()).getServiceId());
                     i.putExtra("position",getLayoutPosition());
-                    //Log.w("service id",String.valueOf(list.get(getLayoutPosition()).getParentId()));
+                    i.putExtra("name",list.get(getLayoutPosition()).getName());
                     view.getContext().startActivity(i);
                 }
             });

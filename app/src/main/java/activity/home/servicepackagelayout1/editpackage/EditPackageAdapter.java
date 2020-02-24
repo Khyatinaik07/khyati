@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlineserviceportal.R;
@@ -13,14 +14,13 @@ import com.example.onlineserviceportal.databinding.RoweditservicepackageBinding;
 
 import java.util.List;
 
-import activity.home.servicepackagelayout2.ServicePackageImageAdapter;
 import data.model.api.servicepackage2.ServiceResult;
 
 public class EditPackageAdapter  extends RecyclerView.Adapter<EditPackageAdapter.myview>{
 
     private List<ServiceResult> serviceResults;
-    ServicePackageImageAdapter adapter;
     String icon;
+    PackageAdapter adapter;
 
     public EditPackageAdapter(List<ServiceResult> serviceResults, String icon) {
         this.serviceResults = serviceResults;
@@ -45,7 +45,8 @@ public class EditPackageAdapter  extends RecyclerView.Adapter<EditPackageAdapter
         ServiceResult serviceResult = serviceResults.get(position);
         holder.binding.setServiceResult(serviceResult);
 
-
+        adapter = new PackageAdapter(serviceResults.get(position).getPackages());
+        holder.binding.packages.setAdapter(adapter);
     }
 
     @Override
@@ -61,6 +62,9 @@ public class EditPackageAdapter  extends RecyclerView.Adapter<EditPackageAdapter
             super(itemView);
 
             binding = DataBindingUtil.bind(itemView);
+
+            LinearLayoutManager l = new LinearLayoutManager(itemView.getContext());
+            binding.packages.setLayoutManager(l);
         }
     }
 }

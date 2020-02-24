@@ -45,4 +45,7 @@ public interface ServiceProviderDao {
 
     @Query("SELECT * FROM table_service_package WHERE parentId= :id")
     LiveData<List<ServiceResult>> getServicePackageLive(String id);
+
+    @Query("SELECT * FROM table_service_package WHERE serviceId = :id")
+    LiveData<List<ServiceResult>> getServiceNameLive(String id);
 }

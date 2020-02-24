@@ -90,4 +90,9 @@ public class AppDbHelper implements DbHelper {
         return mAppDatabase.serviceProviderDao().getServicePackageLive(id);
     }
 
+    @Override
+    public LiveData<List<ServiceResult>> getServiceNameLive(String id) {
+        return mAppDatabase.serviceProviderDao().getServiceNameLive(id);
+    }
+
 }

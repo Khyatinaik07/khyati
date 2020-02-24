@@ -312,6 +312,11 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public LiveData<List<ServiceResult>> getServiceNameLive(String id) {
+        return mDbHelper.getServiceNameLive(id);
+    }
+
+    @Override
     public Completable clearAllPrefs() {
         return mPreferencesHelper.clearAllPrefs();
     }
