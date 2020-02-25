@@ -27,6 +27,8 @@
             android:id="@+id/rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:fadingEdge="none"
             android:visibility="@{subTypeServiceViewModel.isServiceEmpty ? View.GONE : View.VISIBLE}"></androidx.recyclerview.widget.RecyclerView>
 
         <androidx.appcompat.widget.AppCompatTextView

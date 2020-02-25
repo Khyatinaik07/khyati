@@ -20,6 +20,7 @@ import java.util.List;
 import activity.home.servicepackagelayout1.editpackage.EditPackageActivity;
 import activity.home.servicepackagelayout2.ServicePackageImageAdapter;
 import data.model.api.servicepackage2.ServiceResult;
+import utils.GlobalStore;
 
 public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutOneAdapter.myview> {
 
@@ -87,10 +88,12 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
             l.setOrientation(RecyclerView.HORIZONTAL);
             binding.imgrv.setLayoutManager(l);
             binding.imgrv.setNestedScrollingEnabled(false);
+            binding.imgrv.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
             LinearLayoutManager l2 = new LinearLayoutManager(itemView.getContext());
             binding.rvspec.setLayoutManager(l2);
             binding.rvspec.setNestedScrollingEnabled(false);
+            binding.rvspec.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
             binding.conedit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -101,6 +104,7 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
                     i.putExtra("id",list.get(getLayoutPosition()).getServiceId());
                     i.putExtra("position",getLayoutPosition());
                     i.putExtra("name",list.get(getLayoutPosition()).getName());
+                    GlobalStore.amt = 0;
                     view.getContext().startActivity(i);
                 }
             });

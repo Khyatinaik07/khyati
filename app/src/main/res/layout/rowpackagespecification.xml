@@ -62,7 +62,6 @@
                 app:layout_constraintTop_toTopOf="@+id/checkbox"></androidx.appcompat.widget.AppCompatTextView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

@@ -48,7 +48,9 @@
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never"
+                            android:fadingEdge="none"></androidx.recyclerview.widget.RecyclerView>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

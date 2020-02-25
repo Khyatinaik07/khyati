@@ -1,8 +1,10 @@
 package activity.home.servicepackagelayout1.editpackage;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -14,13 +16,13 @@ import com.example.onlineserviceportal.databinding.RowpackagespecificationBindin
 import java.util.List;
 
 import data.model.api.servicepackage2.Specification;
+import utils.GlobalStore;
 
 public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpecificationAdapter.myview> {
 
     private List<Specification> specifications;
     private String selectionType;
     private int lastSelectedPosition = -1;
-    Boolean b = false;
 
     public PackageSpecificationAdapter(List<Specification> specification, String selectionType) {
         this.specifications = specification;
@@ -42,29 +44,60 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
         if (selectionType.equalsIgnoreCase("checkbox")) {
             holder.binding.con1.setVisibility(View.GONE);
             holder.binding.con2.setVisibility(View.VISIBLE);
+            if (Integer.valueOf(specification.getIsdefault()) == 1) {
+                holder.binding.checkbox.setChecked(true);
+                getAmount(Integer.valueOf(specification.getAmount()));
+            }
         }
+
         if (selectionType.equalsIgnoreCase("radio")) {
             holder.binding.con1.setVisibility(View.VISIBLE);
             holder.binding.con2.setVisibility(View.GONE);
+            holder.binding.radio.setSelected(Integer.valueOf(specification.getIsdefault()) == 1);
         }
-        if (Integer.valueOf(specification.getIsdefault()) == 1) {
-            holder.binding.checkbox.setChecked(true);
-            holder.binding.radio.setChecked(true);
-        }
-        if (lastSelectedPosition == position) {
+
+       if (lastSelectedPosition == position) {
             holder.binding.radio.setChecked(true);
         } else {
             holder.binding.radio.setChecked(false);
         }
 
+        holder.binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (holder.binding.checkbox.isChecked())
+                {
+                    //Log.w("checked position",String.valueOf(position));
+                    addAmount(Integer.valueOf(specifications.get(position).getAmount()));
+                }
+                else
+                {
+                   // Log.w("unchecked position",String.valueOf(position));
+                    subAmount(Integer.valueOf(specifications.get(position).getAmount()));
+                }
+            }
+        });
     }
 
-    public void setBoolean(Boolean b) {
-        this.b = b;
+    private void getAmount(int amount)
+    {
+        GlobalStore.amt = GlobalStore.amt + amount;
+        Log.w("total",String.valueOf(GlobalStore.amt));
+
     }
 
-    public Boolean getBoolean() {
-        return b;
+    //for checkbox
+    private void subAmount(int amount)
+    {
+        GlobalStore.amt = GlobalStore.amt - amount;
+        Log.w("sub total",String.valueOf(GlobalStore.amt));
+    }
+
+    //for checkbox
+    private void addAmount(int amount)
+    {
+        GlobalStore.amt = GlobalStore.amt + amount;
+        Log.w("add total",String.valueOf(GlobalStore.amt));
     }
 
     @Override
@@ -79,8 +112,9 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
         public myview(@NonNull View itemView) {
             super(itemView);
             binding = DataBindingUtil.bind(itemView);
-            itemView.setOnClickListener(this);
-            binding.con1.setOnClickListener(this);
+            //itemView.setOnClickListener(this);
+           // binding.con1.setOnClickListener(this);
+            binding.radio.setOnClickListener(this);
         }
 
         @Override
@@ -88,5 +122,6 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
             lastSelectedPosition = getAdapterPosition();
             notifyDataSetChanged();
         }
+
     }
 }

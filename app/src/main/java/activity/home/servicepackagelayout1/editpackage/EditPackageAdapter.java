@@ -65,6 +65,7 @@ public class EditPackageAdapter  extends RecyclerView.Adapter<EditPackageAdapter
 
             LinearLayoutManager l = new LinearLayoutManager(itemView.getContext());
             binding.packages.setLayoutManager(l);
+            binding.packages.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
     }
 }

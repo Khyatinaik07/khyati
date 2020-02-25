@@ -99,6 +99,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/rvspec"
         app:layout_constraintTop_toBottomOf="@+id/imgtime"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
         android:layout_marginTop="@dimen/_5sdp">
     </androidx.recyclerview.widget.RecyclerView>
 
