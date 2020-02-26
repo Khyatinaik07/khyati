@@ -20,6 +20,7 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.myview> 
 
     private List<ServicePackage> packages;
     public PackageSpecificationAdapter adapter;
+    private int p = 0;
 
     public PackageAdapter(List<ServicePackage> packages) {
 
@@ -39,7 +40,15 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.myview> 
         ServicePackage servicePackage = packages.get(position);
         holder.binding.setPackages(servicePackage);
 
-        adapter = new PackageSpecificationAdapter(packages.get(position).getSpecification(),packages.get(position).getSelectionType());
+        if (packages.get(position).getSelectionType().equalsIgnoreCase("radio"))
+        {
+            if (Integer.valueOf(packages.get(position).getSpecification().get(position).getIsdefault()) == 1)
+            {
+                p = position;
+            }
+        }
+
+        adapter = new PackageSpecificationAdapter(packages.get(position).getSpecification(),packages.get(position).getSelectionType(),p);
         holder.binding.specrv.setAdapter(adapter);
     }
 

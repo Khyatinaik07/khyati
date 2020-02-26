@@ -4,37 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="activity.home.servicepackagelayout1.editpackage.EditPackageActivity"
     tools:showIn="@layout/activity_edit_package">
-    
+
     <data>
+
         <import type="android.view.View"></import>
+
         <variable
             name="editPackageViewModel"
             type="activity.home.servicepackagelayout1.editpackage.EditPackageViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:padding="@dimen/_4sdp">
+        android:padding="@dimen/_4sdp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:fadingEdge="none"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/imgrv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"></androidx.recyclerview.widget.RecyclerView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imgrv"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipChildren="false"
+                    android:overScrollMode="never"></androidx.recyclerview.widget.RecyclerView>
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/bottom"
+            layout="@layout/bottomsheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imgrv"
-            app:layout_constraintTop_toTopOf="parent">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_alignParentBottom="true"></include>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rv"
-            app:layout_constraintTop_toBottomOf="@id/imgrv"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:clipChildren="false"
-            android:overScrollMode="never"
-            app:layout_constraintLeft_toLeftOf="parent">
-        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

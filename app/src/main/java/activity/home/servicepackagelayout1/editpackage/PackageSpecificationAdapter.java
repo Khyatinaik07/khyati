@@ -22,11 +22,12 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
 
     private List<Specification> specifications;
     private String selectionType;
-    private int lastSelectedPosition = -1;
+    private int lastSelectedPosition;
 
-    public PackageSpecificationAdapter(List<Specification> specification, String selectionType) {
+    public PackageSpecificationAdapter(List<Specification> specification, String selectionType, int p) {
         this.specifications = specification;
         this.selectionType = selectionType;
+        this.lastSelectedPosition=p;
     }
 
     @NonNull
@@ -53,19 +54,20 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
         if (selectionType.equalsIgnoreCase("radio")) {
             holder.binding.con1.setVisibility(View.VISIBLE);
             holder.binding.con2.setVisibility(View.GONE);
-            holder.binding.radio.setSelected(Integer.valueOf(specification.getIsdefault()) == 1);
-        }
-
-       if (lastSelectedPosition == position) {
-            holder.binding.radio.setChecked(true);
-        } else {
-            holder.binding.radio.setChecked(false);
+            //holder.binding.radio.setChecked(Integer.valueOf(specification.getIsdefault()) == 1);
+            if (lastSelectedPosition == position) {
+                holder.binding.radio.setChecked(true);
+                Integer.valueOf(specifications.get(position).getAmount());
+                Log.w("default radio amount",specifications.get(position).getAmount());
+            } else {
+                holder.binding.radio.setChecked(false);
+            }
         }
 
         holder.binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (holder.binding.checkbox.isChecked())
+                if (b)
                 {
                     //Log.w("checked position",String.valueOf(position));
                     addAmount(Integer.valueOf(specifications.get(position).getAmount()));
@@ -77,13 +79,24 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
                 }
             }
         });
+
+       holder.binding.radio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+               if (b)
+               {
+                   Integer.valueOf(specifications.get(position).getAmount());
+                   Log.w("radio amount",specifications.get(position).getAmount());
+               }
+           }
+       });
     }
 
+    //for checkbox
     private void getAmount(int amount)
     {
         GlobalStore.amt = GlobalStore.amt + amount;
         Log.w("total",String.valueOf(GlobalStore.amt));
-
     }
 
     //for checkbox

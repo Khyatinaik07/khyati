@@ -28,6 +28,7 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
     ServicePackageImageAdapter adapter;
     ServicePackagePackageAdapter packageAdapter;
     private String icon;
+    TotalAmountTimeAdapter amountTimeAdapter;
 
     public ServiceLayoutOneAdapter(ArrayList<ServiceResult> serviceResults,String icon) {
         this.list = serviceResults;
@@ -88,12 +89,10 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
             l.setOrientation(RecyclerView.HORIZONTAL);
             binding.imgrv.setLayoutManager(l);
             binding.imgrv.setNestedScrollingEnabled(false);
-            binding.imgrv.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
             LinearLayoutManager l2 = new LinearLayoutManager(itemView.getContext());
             binding.rvspec.setLayoutManager(l2);
             binding.rvspec.setNestedScrollingEnabled(false);
-            binding.rvspec.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
             binding.conedit.setOnClickListener(new View.OnClickListener() {
                 @Override
