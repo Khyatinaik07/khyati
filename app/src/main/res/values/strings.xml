@@ -134,6 +134,7 @@
 
     <string name="title_activity_service_package_layout2">ServicePAckageLayout2Activity</string>
     <string name="edit_package">Edit Package</string>
+
     <string name="title_activity_edit_package">EditPackageActivity</string>
 
 </resources>

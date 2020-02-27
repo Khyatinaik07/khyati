@@ -10,6 +10,8 @@ import android.util.Log;
 import com.example.onlineserviceportal.R;
 
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class CommonUtils {
 
@@ -34,6 +36,12 @@ public class CommonUtils {
         encodeValue = Base64.encodeToString(string.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT).trim();
         Log.i("toBase64", "encodeValue: " + encodeValue);
         return encodeValue;
+    }
+
+    public static String numberFormatter(double data)
+    {
+        NumberFormat formatter = new DecimalFormat("##.##");
+        return formatter.format(data);
     }
 
 }

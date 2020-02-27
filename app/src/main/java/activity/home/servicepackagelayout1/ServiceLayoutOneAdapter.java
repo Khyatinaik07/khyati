@@ -28,7 +28,7 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
     ServicePackageImageAdapter adapter;
     ServicePackagePackageAdapter packageAdapter;
     private String icon;
-    TotalAmountTimeAdapter amountTimeAdapter;
+    int amount;
 
     public ServiceLayoutOneAdapter(ArrayList<ServiceResult> serviceResults,String icon) {
         this.list = serviceResults;
@@ -64,6 +64,9 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
         {
             holder.binding.subtitle.setVisibility(View.GONE);
         }
+
+        amount = ((ServicePackageLayoutOneActivity)holder.binding.amount.getContext()).getMainAmount();
+        holder.binding.amount.setText(String.valueOf(amount));
     }
 
     @Override
@@ -104,6 +107,8 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
                     i.putExtra("position",getLayoutPosition());
                     i.putExtra("name",list.get(getLayoutPosition()).getName());
                     GlobalStore.amt = 0;
+                    GlobalStore.discount = 0;
+                    GlobalStore.finalamount = 0;
                     view.getContext().startActivity(i);
                 }
             });

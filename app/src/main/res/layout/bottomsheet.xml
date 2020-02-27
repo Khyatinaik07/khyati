@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <import type="android.view.View"></import>
+
         <variable
             name="specification"
             type="data.model.api.servicepackage2.Specification" />
@@ -13,37 +15,76 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:background="@drawable/layoutshadow"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/_10sdp">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/grandtotal"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/grandtotal"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_8sdp"
+            android:background="@color/lightpink">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/amt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:text="dfsdfcdc"
-            android:textColor="@android:color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/grandtotal" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/grandtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grandtotal"
+                android:fontFamily="@font/txt_bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_17sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_5sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/amt"
-            app:layout_constraintLeft_toRightOf="@+id/amt"
-            app:layout_constraintTop_toBottomOf="@+id/grandtotal"
-            app:layout_constraintTop_toTopOf="@+id/amt"></androidx.appcompat.widget.AppCompatTextView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/txt_medium"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/grandtotal" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/discamt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/amt"
+                app:layout_constraintLeft_toRightOf="@+id/amt"
+                app:layout_constraintTop_toBottomOf="@+id/grandtotal"
+                app:layout_constraintTop_toTopOf="@+id/amt"></androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="@dimen/_15sdp"
+                android:id="@+id/next"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:fontFamily="@font/txt_bold"
+                app:layout_constraintBottom_toBottomOf="parent">
+            </androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/next"
+                android:id="@+id/srcnext"
+                android:layout_marginLeft="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="@+id/next"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/next"
+                app:layout_constraintLeft_toRightOf="@+id/next">
+            </androidx.appcompat.widget.AppCompatImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

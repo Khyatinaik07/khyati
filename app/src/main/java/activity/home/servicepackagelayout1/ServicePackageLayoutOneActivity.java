@@ -25,6 +25,7 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
     ActivityServicePackageLayout1Binding binding;
     Serializable id,name,icon;
     ServiceLayoutOneAdapter adapter;
+    int amount,time;
 
     @Inject
     ViewModelProvider.Factory mViewModelFactory;
@@ -47,6 +48,15 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getViewModel().getService(id.toString());
+    }
+
+    public void setMainAmount(int amount)
+    {
+        this.amount = amount;
+    }
+    public int getMainAmount()
+    {
+        return amount;
     }
 
     @Override

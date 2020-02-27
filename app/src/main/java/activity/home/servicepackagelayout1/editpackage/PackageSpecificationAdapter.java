@@ -1,6 +1,6 @@
 package activity.home.servicepackagelayout1.editpackage;
 
-import android.util.Log;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +27,7 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
     public PackageSpecificationAdapter(List<Specification> specification, String selectionType, int p) {
         this.specifications = specification;
         this.selectionType = selectionType;
-        this.lastSelectedPosition=p;
+        this.lastSelectedPosition = p;
     }
 
     @NonNull
@@ -42,15 +42,17 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
         Specification specification = specifications.get(position);
         holder.binding.setSpecifications(specification);
 
+        //check type
         if (selectionType.equalsIgnoreCase("checkbox")) {
             holder.binding.con1.setVisibility(View.GONE);
             holder.binding.con2.setVisibility(View.VISIBLE);
             if (Integer.valueOf(specification.getIsdefault()) == 1) {
                 holder.binding.checkbox.setChecked(true);
-                getAmount(Integer.valueOf(specification.getAmount()));
+                getAmount(holder.binding.checkbox.getContext(), Integer.valueOf(specification.getAmount()), Integer.valueOf(specification.getDiscount()));
             }
         }
 
+        //check type
         if (selectionType.equalsIgnoreCase("radio")) {
             holder.binding.con1.setVisibility(View.VISIBLE);
             holder.binding.con2.setVisibility(View.GONE);
@@ -58,59 +60,75 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
             if (lastSelectedPosition == position) {
                 holder.binding.radio.setChecked(true);
                 Integer.valueOf(specifications.get(position).getAmount());
-                Log.w("default radio amount",specifications.get(position).getAmount());
+
+                int amt = Integer.valueOf(specifications.get(position).getAmount());
+                double dis = Double.valueOf(specifications.get(position).getDiscount());
+                double famt = amt * (dis/100);
+                ((EditPackageActivity) holder.binding.radio.getContext()).setDiscountText(Integer.valueOf(specifications.get(position).getAmount()));
+                ((EditPackageActivity) holder.binding.radio.getContext()).setAmountText(famt);
             } else {
                 holder.binding.radio.setChecked(false);
             }
         }
 
+        //checkbox
         holder.binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b)
-                {
-                    //Log.w("checked position",String.valueOf(position));
-                    addAmount(Integer.valueOf(specifications.get(position).getAmount()));
-                }
-                else
-                {
-                   // Log.w("unchecked position",String.valueOf(position));
-                    subAmount(Integer.valueOf(specifications.get(position).getAmount()));
+                if (b) {
+                    addAmount(holder.binding.checkbox.getContext(), Integer.valueOf(specifications.get(position).getAmount()), Integer.valueOf(specification.getDiscount()));
+                } else {
+                    subAmount(holder.binding.checkbox.getContext(), Integer.valueOf(specifications.get(position).getAmount()), Integer.valueOf(specification.getDiscount()));
                 }
             }
         });
 
-       holder.binding.radio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-           @Override
-           public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-               if (b)
-               {
-                   Integer.valueOf(specifications.get(position).getAmount());
-                   Log.w("radio amount",specifications.get(position).getAmount());
-               }
-           }
-       });
+        //radio button
+        holder.binding.radio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    ((EditPackageActivity) holder.binding.radio.getContext()).setAmountText(Integer.valueOf(specifications.get(position).getAmount()));
+                    ((EditPackageActivity) holder.binding.radio.getContext()).setDiscountText(
+                            Integer.valueOf(specifications.get(position).getAmount())*
+                                    (Integer.valueOf(specifications.get(position).getDiscount())/100));
+                }
+            }
+        });
     }
 
     //for checkbox
-    private void getAmount(int amount)
-    {
+    public void getAmount(Context position, int amount, double discount) {
         GlobalStore.amt = GlobalStore.amt + amount;
-        Log.w("total",String.valueOf(GlobalStore.amt));
+        double amt = amount;
+        amt = amt*(discount/100);
+        GlobalStore.finalamount = GlobalStore.finalamount + amt;
+
+        ((EditPackageActivity)position).setDiscountText(GlobalStore.amt);
+        ((EditPackageActivity) position).setAmountText(GlobalStore.amt - GlobalStore.finalamount);
+
     }
 
     //for checkbox
-    private void subAmount(int amount)
-    {
+    public void subAmount(Context position, int amount, double discount) {
         GlobalStore.amt = GlobalStore.amt - amount;
-        Log.w("sub total",String.valueOf(GlobalStore.amt));
+        double amt = amount;
+        amt = amt * (discount/100);
+        GlobalStore.finalamount = GlobalStore.finalamount - amt;
+
+        ((EditPackageActivity)position).setDiscountText(GlobalStore.amt);
+        ((EditPackageActivity) position).setAmountText(GlobalStore.amt - GlobalStore.finalamount);
     }
 
     //for checkbox
-    private void addAmount(int amount)
-    {
+    public void addAmount(Context position, int amount, double discount) {
         GlobalStore.amt = GlobalStore.amt + amount;
-        Log.w("add total",String.valueOf(GlobalStore.amt));
+        double amt = amount;
+        amt = amt * (discount/100);
+        GlobalStore.finalamount = GlobalStore.finalamount + amt;
+
+        ((EditPackageActivity)position).setDiscountText(GlobalStore.amt);
+        ((EditPackageActivity) position).setAmountText(GlobalStore.amt - GlobalStore.finalamount);
     }
 
     @Override
@@ -126,7 +144,7 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
             super(itemView);
             binding = DataBindingUtil.bind(itemView);
             //itemView.setOnClickListener(this);
-           // binding.con1.setOnClickListener(this);
+            // binding.con1.setOnClickListener(this);
             binding.radio.setOnClickListener(this);
         }
 
@@ -135,6 +153,5 @@ public class PackageSpecificationAdapter extends RecyclerView.Adapter<PackageSpe
             lastSelectedPosition = getAdapterPosition();
             notifyDataSetChanged();
         }
-
     }
 }

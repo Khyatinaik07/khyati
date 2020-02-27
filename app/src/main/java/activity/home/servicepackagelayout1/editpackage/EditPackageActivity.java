@@ -1,5 +1,6 @@
 package activity.home.servicepackagelayout1.editpackage;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -22,6 +23,7 @@ import javax.inject.Inject;
 import activity.basic.BaseActivity;
 import activity.home.servicepackagelayout2.ServicePackageImageAdapter;
 import data.model.api.servicepackage2.ServiceResult;
+import utils.CommonUtils;
 
 public class EditPackageActivity extends BaseActivity<ActivityEditPackageBinding,EditPackageViewModel> implements EditPackageNavigator {
 
@@ -29,6 +31,7 @@ public class EditPackageActivity extends BaseActivity<ActivityEditPackageBinding
     Serializable serviceid,icon,position,id,name;
     EditPackageAdapter adapter;
     ServicePackageImageAdapter imageAdapter;
+
 
     @Inject
     ViewModelProvider.Factory mViewModelFactory;
@@ -112,5 +115,17 @@ public class EditPackageActivity extends BaseActivity<ActivityEditPackageBinding
                 default:
                     return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void setAmountText(double amount)
+    {
+        String text = '\u20B9' + CommonUtils.numberFormatter(amount);
+        binding.edit.bottom.amt.setText(text);
+    }
+    public void setDiscountText(int discount)
+    {
+        String discountamt = '\u20B9' + String.valueOf(discount);
+        binding.edit.bottom.discamt.setText(discountamt);
+        binding.edit.bottom.discamt.setPaintFlags(binding.edit.bottom.discamt.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     }
 }
