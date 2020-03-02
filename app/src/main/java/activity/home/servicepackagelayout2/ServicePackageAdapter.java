@@ -18,9 +18,9 @@ import data.model.api.servicepackage2.ServiceResult;
 
 public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAdapter.myview> {
 
-    List<ServiceResult> list2;
-    String icon;
-    SpecificationAdapter adapter;
+    private List<ServiceResult> list2;
+    private String icon;
+    public SpecificationAdapter adapter;
 
     private LinearLayoutManager layoutManager;
 

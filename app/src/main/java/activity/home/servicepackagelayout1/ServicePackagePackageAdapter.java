@@ -39,6 +39,7 @@ public class ServicePackagePackageAdapter extends RecyclerView.Adapter<ServicePa
 
         adapter = new SpectificationDetailAdapter(packages.get(position).getSpecification());
         holder.binding.specdetailrv.setAdapter(adapter);
+
     }
 
     @Override

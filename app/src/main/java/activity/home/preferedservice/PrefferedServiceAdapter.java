@@ -19,6 +19,7 @@ import java.util.List;
 import activity.home.servicepackagelayout1.ServicePackageLayoutOneActivity;
 import activity.home.servicepackagelayout2.ServicePackageActivity;
 import data.model.api.homepage.ServiceData;
+import utils.GlobalStore;
 
 public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServiceAdapter.myview> {
 
@@ -69,6 +70,7 @@ public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServi
 
             if (list.get(getLayoutPosition()).getType().equalsIgnoreCase("layout2"))
             {
+                GlobalStore.amt = 0;
                 Intent intent = new Intent(view.getContext(), ServicePackageActivity.class);
                 intent.putExtra("name",list.get(getLayoutPosition()).getName());
                 intent.putExtra("id",list.get(getLayoutPosition()).getServiceId());

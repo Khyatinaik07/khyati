@@ -1,5 +1,6 @@
 package activity.home.servicepackagelayout1;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,17 +38,17 @@ public class SpectificationDetailAdapter extends RecyclerView.Adapter<Spectifica
         Specification specification = specifications.get(position);
         holder.binding.setSpecification(specification);
 
-        if (Integer.valueOf(specifications.get(position).getIsdefault()) == 1)
-        {
-            getAmount(Integer.valueOf(specifications.get(position).getAmount()));
-        }
-
+            if (Integer.valueOf(specifications.get(position).getIsdefault()) == 1)
+            {
+                getAmount(holder.binding.textspec.getContext(),Integer.valueOf(specifications.get(position).getAmount()));
+            }
     }
 
-    private void getAmount(int amount)
+    private void getAmount(Context context,int amount)
     {
         GlobalStore.amt = GlobalStore.amt + amount;
         Log.w("amount",String.valueOf(GlobalStore.amt));
+        ((ServicePackageLayoutOneActivity)context).setMainAmount(GlobalStore.amt);
     }
 
     @Override
