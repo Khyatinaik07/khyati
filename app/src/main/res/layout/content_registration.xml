@@ -41,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title"
+                style="@style/TextInputLayoutAppearance"
                 android:theme="@style/TextInputLayoutAppearance"
                 app:errorEnabled="true"
                 app:errorTextAppearance="@style/error_appearance">
@@ -59,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fname"
+                style="@style/TextInputLayoutAppearance"
                 android:theme="@style/TextInputLayoutAppearance"
                 app:errorEnabled="true"
                 app:errorTextAppearance="@style/error_appearance">
@@ -76,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lname"
+                style="@style/TextInputLayoutAppearance"
                 android:theme="@style/TextInputLayoutAppearance"
                 app:errorEnabled="true"
                 app:errorTextAppearance="@style/error_appearance">
@@ -100,6 +103,7 @@
                     android:id="@+id/code"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    style="@style/TextInputLayoutAppearance"
                     android:theme="@style/TextInputLayoutAppearance"
                     app:errorEnabled="true"
                     android:layout_weight="8"
@@ -120,6 +124,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
+                    style="@style/TextInputLayoutAppearance"
                     android:theme="@style/TextInputLayoutAppearance"
                     app:errorEnabled="true"
                     app:errorTextAppearance="@style/error_appearance">
@@ -139,6 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linear"
+                style="@style/TextInputLayoutAppearance"
                 android:theme="@style/TextInputLayoutAppearance"
                 app:errorEnabled="true"
                 app:errorTextAppearance="@style/error_appearance"
@@ -158,6 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pass"
+                style="@style/TextInputLayoutAppearance"
                 android:theme="@style/TextInputLayoutAppearance"
                 app:errorEnabled="true"
                 app:errorTextAppearance="@style/error_appearance"

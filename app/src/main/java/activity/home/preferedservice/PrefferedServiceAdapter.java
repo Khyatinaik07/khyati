@@ -71,6 +71,7 @@ public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServi
             if (list.get(getLayoutPosition()).getType().equalsIgnoreCase("layout2"))
             {
                 GlobalStore.amt = 0;
+                GlobalStore.discount = 0;
                 Intent intent = new Intent(view.getContext(), ServicePackageActivity.class);
                 intent.putExtra("name",list.get(getLayoutPosition()).getName());
                 intent.putExtra("id",list.get(getLayoutPosition()).getServiceId());
@@ -80,6 +81,8 @@ public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServi
             }
             else if (list.get(getLayoutPosition()).getType().equalsIgnoreCase("layout1"))
             {
+                GlobalStore.amt = 0;
+                GlobalStore.discount = 0;
                 Intent i = new Intent(view.getContext(), ServicePackageLayoutOneActivity.class);
                 i.putExtra("name",list.get(getLayoutPosition()).getName());
                 i.putExtra("id",list.get(getLayoutPosition()).getServiceId());

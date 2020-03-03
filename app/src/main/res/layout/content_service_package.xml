@@ -30,6 +30,17 @@
                 android:layout_marginBottom="@dimen/_8sdp">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:drawableTop="@drawable/nobooking"
+                    android:fontFamily="@font/txt_bold"
+                    android:text="@string/no_data"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_17sdp"
+                    android:visibility="@{servicePackageViewModel.getIsServiceEmpty() ? View.VISIBLE : View.GONE}"></androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/title"
                     android:fontFamily="@font/txt_bold"
                     android:layout_width="match_parent"
@@ -56,6 +67,7 @@
                     android:layout_height="match_parent"
                     android:overScrollMode="never"
                     android:fadingEdge="none"
+                    android:visibility="@{servicePackageViewModel.getIsServiceEmpty() ? View.GONE : View.VISIBLE}"
                     android:layout_below="@+id/view">
                 </androidx.recyclerview.widget.RecyclerView>
 

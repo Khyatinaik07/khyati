@@ -21,7 +21,7 @@ import data.model.api.homepage.ServiceData;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.myview>{
 
-    List<ServiceData> txtlist2;
+    private List<ServiceData> txtlist2;
 
     public ServiceAdapter(List<ServiceData> txtlist2) {
         this.txtlist2=txtlist2;
@@ -39,27 +39,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.myview>{
         ServiceData data = txtlist2.get(position);
         holder.binding.setServiceData(data);
         Picasso.with(holder.binding.img.getContext()).load(data.getIcon()).into(holder.binding.img);
-
-        holder.binding.img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), SubServiceAllActivity.class);
-                i.putExtra("tbcount",position);
-                i.putExtra("id",data.getServiceId());
-                Log.w("id","service id"+data.getServiceId());
-                view.getContext().startActivity(i);
-            }
-        });
-        holder.binding.txt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), SubServiceAllActivity.class);
-                i.putExtra("tbcount",position);
-                i.putExtra("id",data.getServiceId());
-                Log.w("id","service id"+data.getServiceId());
-                view.getContext().startActivity(i);
-            }
-        });
     }
 
     public void setData(List<ServiceData> serviceData)
@@ -80,12 +59,16 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.myview>{
         public myview(@NonNull View itemView) {
             super(itemView);
             binding = DataBindingUtil.bind(itemView);
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-
+            Intent i = new Intent(view.getContext(), SubServiceAllActivity.class);
+            i.putExtra("tbcount",getLayoutPosition());
+            i.putExtra("id",txtlist2.get(getLayoutPosition()).getServiceId());
+            Log.w("id","service id"+txtlist2.get(getLayoutPosition()).getServiceId());
+            view.getContext().startActivity(i);
         }
     }
-
 }

@@ -29,7 +29,7 @@ public class SpectificationDetailAdapter extends RecyclerView.Adapter<Spectifica
     @NonNull
     @Override
     public myview onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowspecdetail,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowspecdetail, parent, false);
         return new SpectificationDetailAdapter.myview(view);
     }
 
@@ -38,17 +38,15 @@ public class SpectificationDetailAdapter extends RecyclerView.Adapter<Spectifica
         Specification specification = specifications.get(position);
         holder.binding.setSpecification(specification);
 
-            if (Integer.valueOf(specifications.get(position).getIsdefault()) == 1)
-            {
-                getAmount(holder.binding.textspec.getContext(),Integer.valueOf(specifications.get(position).getAmount()));
-            }
+        if (Integer.valueOf(specifications.get(position).getIsdefault()) == 1) {
+            //getAmount(holder.binding.textspec.getContext(), Integer.valueOf(specifications.get(position).getAmount()));
+        }
     }
 
-    private void getAmount(Context context,int amount)
-    {
+    private void getAmount(Context context, int amount) {
         GlobalStore.amt = GlobalStore.amt + amount;
-        Log.w("amount",String.valueOf(GlobalStore.amt));
-        ((ServicePackageLayoutOneActivity)context).setMainAmount(GlobalStore.amt);
+        Log.w("amount", String.valueOf(GlobalStore.amt));
+        ((ServicePackageLayoutOneActivity) context).setMainAmount(GlobalStore.amt);
     }
 
     @Override
@@ -56,7 +54,7 @@ public class SpectificationDetailAdapter extends RecyclerView.Adapter<Spectifica
         return specifications.size();
     }
 
-    public class myview extends RecyclerView.ViewHolder{
+    public class myview extends RecyclerView.ViewHolder {
 
         RowspecdetailBinding binding;
 

@@ -14,6 +14,8 @@
 <RelativeLayout
     android:orientation="vertical"
     android:layout_width="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
@@ -47,7 +49,7 @@
 
                 <View
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:background="@color/transpblack">
                 </View>
                 <androidx.appcompat.widget.AppCompatTextView
@@ -56,11 +58,12 @@
                     android:textColor="@color/black"
                     android:id="@+id/txt"
                     android:text="@{serviceData.name}"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_10sdp"
                     android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
                     android:textAlignment="center"
                     android:fontFamily="@font/txt_bold"
-                    android:singleLine="true"
+                    android:maxLines="2"
                     android:padding="@dimen/_3sdp">
                 </androidx.appcompat.widget.AppCompatTextView>
             </RelativeLayout>

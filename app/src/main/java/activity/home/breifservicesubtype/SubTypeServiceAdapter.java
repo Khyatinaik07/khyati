@@ -40,7 +40,6 @@ public class SubTypeServiceAdapter extends RecyclerView.Adapter<SubTypeServiceAd
         ServiceData data = txtlist.get(position);
         holder.binding.setServiceData(data);
         Picasso.with(holder.binding.img.getContext()).load(data.getIcon()).into(holder.binding.img);
-     //   holder.binding.txt.setText(txtlist.get(position).getName());
     }
 
     @Override

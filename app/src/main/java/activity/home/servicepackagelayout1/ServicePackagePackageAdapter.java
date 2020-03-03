@@ -18,8 +18,8 @@ import data.model.api.servicepackage2.ServicePackage;
 
 public class ServicePackagePackageAdapter extends RecyclerView.Adapter<ServicePackagePackageAdapter.myview> {
 
-    List<ServicePackage> packages;
-    SpectificationDetailAdapter adapter;
+    private List<ServicePackage> packages;
+    public SpectificationDetailAdapter adapter;
 
     public ServicePackagePackageAdapter(List<ServicePackage> packages) {
         this.packages=packages;
@@ -39,7 +39,6 @@ public class ServicePackagePackageAdapter extends RecyclerView.Adapter<ServicePa
 
         adapter = new SpectificationDetailAdapter(packages.get(position).getSpecification());
         holder.binding.specdetailrv.setAdapter(adapter);
-
     }
 
     @Override

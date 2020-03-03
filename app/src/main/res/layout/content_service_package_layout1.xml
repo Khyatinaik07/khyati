@@ -8,7 +8,7 @@
     <data>
         <import type="android.view.View"></import>
         <variable
-            name="serviceLayout1ViewModel"
+            name="serviceLayoutoneViewModel"
             type="activity.home.servicepackagelayout1.ServiceLayoutOneViewModel" />
     </data>
 
@@ -17,6 +17,19 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:padding="@dimen/_8sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data"
+            android:drawableTop="@drawable/nobooking"
+            android:textAlignment="center"
+            android:fontFamily="@font/txt_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/_17sdp">
+        </androidx.appcompat.widget.AppCompatTextView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

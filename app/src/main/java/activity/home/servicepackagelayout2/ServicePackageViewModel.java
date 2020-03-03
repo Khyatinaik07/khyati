@@ -2,6 +2,7 @@ package activity.home.servicepackagelayout2;
 
 import android.util.Log;
 
+import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.Observer;
 
 import java.util.List;
@@ -16,6 +17,8 @@ import utils.rx.SchedulerProvider;
 
 public class ServicePackageViewModel extends BaseViewModel<ServicePackageNavigator> {
 
+    private ObservableBoolean isServiceEmpty = new ObservableBoolean();
+
     public ServicePackageViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
     }
@@ -26,6 +29,14 @@ public class ServicePackageViewModel extends BaseViewModel<ServicePackageNavigat
             getNavigator().onServicePackageSuccessfull(serviceResults);
         }
     };
+
+    public ObservableBoolean getIsServiceEmpty() {
+        return isServiceEmpty;
+    }
+
+    public void setIsServiceEmpty(Boolean isServiceEmpty) {
+        this.isServiceEmpty.set(isServiceEmpty);
+    }
 
     public void setServicePackage(String id)
     {

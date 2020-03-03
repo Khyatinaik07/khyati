@@ -28,8 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"
-            android:fadingEdge="none"
-            android:visibility="@{subTypeServiceViewModel.isServiceEmpty ? View.GONE : View.VISIBLE}"></androidx.recyclerview.widget.RecyclerView>
+            android:fadingEdge="none"></androidx.recyclerview.widget.RecyclerView>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
@@ -38,9 +37,9 @@
             android:drawableTop="@drawable/nobooking"
             android:fontFamily="@font/txt_bold"
             android:text="@string/no_data"
+            android:id="@+id/text"
             android:textAlignment="center"
-            android:textSize="@dimen/_17sdp"
-            android:visibility="@{subTypeServiceViewModel.isServiceEmpty ? View.VISIBLE : View.GONE}"></androidx.appcompat.widget.AppCompatTextView>
+            android:textSize="@dimen/_17sdp"></androidx.appcompat.widget.AppCompatTextView>
 
     </RelativeLayout>
 </layout>

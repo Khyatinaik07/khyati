@@ -120,6 +120,7 @@ public class ServicePackageActivity extends BaseActivity<ActivityServicePackageB
         getViewModel().setIsEmpty(serviceResults.isEmpty());
         Log.e("empty", "service package data empty" + serviceResults.isEmpty());
         adapter.setList2(serviceResults);
+        getViewModel().setIsServiceEmpty(serviceResults.isEmpty());
     }
 
     public void setBottomLayoutVisibility(Boolean b) {

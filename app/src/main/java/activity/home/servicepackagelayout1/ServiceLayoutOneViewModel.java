@@ -2,6 +2,7 @@ package activity.home.servicepackagelayout1;
 
 import android.util.Log;
 
+import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.Observer;
 
 import java.util.List;
@@ -16,6 +17,8 @@ import utils.rx.SchedulerProvider;
 
 public class ServiceLayoutOneViewModel extends BaseViewModel<ServiceLayoutOneNavigator> {
 
+    private ObservableBoolean isServiceEmpty = new ObservableBoolean();
+
     public ServiceLayoutOneViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
     }
@@ -23,9 +26,18 @@ public class ServiceLayoutOneViewModel extends BaseViewModel<ServiceLayoutOneNav
     public Observer<List<ServiceResult>> listObserver = new Observer<List<ServiceResult>>() {
         @Override
         public void onChanged(List<ServiceResult> serviceResults) {
+            Log.w("empty",String.valueOf(serviceResults.isEmpty()));
             getNavigator().onServicePackageSuccessfull(serviceResults);
         }
     };
+
+    public ObservableBoolean getIsServiceEmpty() {
+        return isServiceEmpty;
+    }
+
+    public void setIsServiceEmpty(Boolean isServiceEmpty) {
+        this.isServiceEmpty.set(isServiceEmpty);
+    }
 
     public void getService(String id)
     {

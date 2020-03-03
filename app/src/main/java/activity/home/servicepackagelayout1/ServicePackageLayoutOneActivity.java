@@ -1,7 +1,9 @@
 package activity.home.servicepackagelayout1;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -77,7 +79,7 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
 
     @Override
     public int getBindingVariable() {
-        return BR.serviceLayout1ViewModel;
+        return BR.serviceLayoutoneViewModel;
     }
 
     @Override
@@ -108,7 +110,18 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
 
     @Override
     public void onServicePackageSuccessfull(List<ServiceResult> serviceResults) {
-        getViewModel().setIsEmpty(serviceResults.isEmpty());
+        //getViewModel().setIsEmpty(serviceResults.isEmpty());
+        if (serviceResults.isEmpty())
+        {
+            binding.service.rv.setVisibility(View.GONE);
+            binding.service.text.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            binding.service.rv.setVisibility(View.VISIBLE);
+            binding.service.text.setVisibility(View.GONE);
+        }
         adapter.setData(serviceResults);
+        Log.e("service", "onServicePackageSuccessfull: " + serviceResults.size() + "==" + getViewModel().getIsServiceEmpty().get());
     }
 }

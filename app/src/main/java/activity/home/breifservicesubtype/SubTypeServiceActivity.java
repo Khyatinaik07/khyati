@@ -1,8 +1,8 @@
 package activity.home.breifservicesubtype;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
@@ -56,8 +56,16 @@ public class SubTypeServiceActivity extends BaseActivity<ActivitySubTypeServiceB
         getViewModel().getDataManager().getServiceLive(0,id).observe(this, new Observer<List<ServiceData>>() {
             @Override
             public void onChanged(List<ServiceData> serviceData) {
-                getViewModel().setIsServiceEmpty(serviceData.isEmpty());
-                Log.w("emptyyyyy","data empty"+serviceData.isEmpty());
+                //getViewModel().setIsServiceEmpty(serviceData.isEmpty());
+                if (serviceData.isEmpty())
+                {
+                    binding.sub.rv.setVisibility(View.GONE);
+                    binding.sub.text.setVisibility(View.VISIBLE);
+                }
+                else {
+                    binding.sub.rv.setVisibility(View.VISIBLE);
+                    binding.sub.text.setVisibility(View.GONE);
+                }
                 adapter.setData(serviceData);
             }
         });
