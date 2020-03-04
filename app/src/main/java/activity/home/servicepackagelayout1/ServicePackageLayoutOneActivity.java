@@ -27,7 +27,7 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
     ActivityServicePackageLayout1Binding binding;
     Serializable id,name,icon;
     ServiceLayoutOneAdapter adapter;
-    int amount,time;
+    String time,amount;
 
     @Inject
     ViewModelProvider.Factory mViewModelFactory;
@@ -52,13 +52,21 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
         getViewModel().getService(id.toString());
     }
 
-    public void setMainAmount(int amount)
+    public void setMainAmount(String amount)
     {
         this.amount = amount;
     }
-    public int getMainAmount()
+    public String getMainAmount()
     {
         return amount;
+    }
+    public void setMainTime(String time)
+    {
+        this.time = time;
+    }
+    public  String getMainTime()
+    {
+        return time;
     }
 
     @Override

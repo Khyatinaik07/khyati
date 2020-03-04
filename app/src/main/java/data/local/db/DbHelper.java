@@ -37,4 +37,6 @@ public interface DbHelper {
 
     LiveData<List<ServiceResult>> getServiceNameLive(String id);
 
+    LiveData<List<ServiceResult>> getSpecification(String id);
+
 }

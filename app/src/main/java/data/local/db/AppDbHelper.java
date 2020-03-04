@@ -95,4 +95,10 @@ public class AppDbHelper implements DbHelper {
         return mAppDatabase.serviceProviderDao().getServiceNameLive(id);
     }
 
+    @Override
+    public LiveData<List<ServiceResult>> getSpecification(String id) {
+        return mAppDatabase.serviceProviderDao().getSpecification(id);
+    }
+
+
 }

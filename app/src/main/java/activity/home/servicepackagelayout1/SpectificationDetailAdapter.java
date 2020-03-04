@@ -1,7 +1,5 @@
 package activity.home.servicepackagelayout1;
 
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,6 @@ import com.example.onlineserviceportal.databinding.RowspecdetailBinding;
 import java.util.List;
 
 import data.model.api.servicepackage2.Specification;
-import utils.GlobalStore;
 
 public class SpectificationDetailAdapter extends RecyclerView.Adapter<SpectificationDetailAdapter.myview> {
 
@@ -37,16 +34,6 @@ public class SpectificationDetailAdapter extends RecyclerView.Adapter<Spectifica
     public void onBindViewHolder(@NonNull myview holder, int position) {
         Specification specification = specifications.get(position);
         holder.binding.setSpecification(specification);
-
-        if (Integer.valueOf(specifications.get(position).getIsdefault()) == 1) {
-            //getAmount(holder.binding.textspec.getContext(), Integer.valueOf(specifications.get(position).getAmount()));
-        }
-    }
-
-    private void getAmount(Context context, int amount) {
-        GlobalStore.amt = GlobalStore.amt + amount;
-        Log.w("amount", String.valueOf(GlobalStore.amt));
-        ((ServicePackageLayoutOneActivity) context).setMainAmount(GlobalStore.amt);
     }
 
     @Override

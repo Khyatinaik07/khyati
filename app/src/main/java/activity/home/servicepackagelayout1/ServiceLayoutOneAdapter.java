@@ -30,8 +30,7 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
     private List<ServiceResult> list;
     ServicePackageImageAdapter adapter;
     ServicePackagePackageAdapter packageAdapter;
-    private String icon;
-    int amount;
+    private String icon,mtime,amount;
 
     public ServiceLayoutOneAdapter(ArrayList<ServiceResult> serviceResults,String icon) {
         this.list = serviceResults;
@@ -65,21 +64,27 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
 
         List<ServicePackage> packages = list.get(position).getPackages();
         int amt = 0;
+        int time = 0;
         for (int i = 0;i<packages.size();i++)
         {
             if (Integer.valueOf(packages.get(i).getServiceId()) == Integer.valueOf(data.getServiceId()))
             {
                 List<Specification> specifications = packages.get(i).getSpecification();
-                for (int j=0;j<specifications.size();j++)
+                if (Integer.valueOf(packages.get(i).getPackageId()) == Integer.valueOf(specifications.get(i).getPackageId()))
                 {
-                    if (Integer.valueOf(specifications.get(j).getIsdefault()) == 1)
+                    for (int j=0;j<specifications.size();j++)
                     {
-                        amt = amt + Integer.valueOf(specifications.get(j).getAmount());
-                        Log.w("amount",String.valueOf(amt));
+                        if (Integer.valueOf(specifications.get(j).getIsdefault()) == 1)
+                        {
+                            amt = amt + Integer.valueOf(specifications.get(j).getAmount());
+                            time = time + Integer.valueOf(specifications.get(j).getTime());
+                        }
                     }
+                    Log.w("amount",String.valueOf(amt));
+                    ((ServicePackageLayoutOneActivity)holder.binding.amount.getContext()).setMainAmount("\u20B9"+amt);
+                    ((ServicePackageLayoutOneActivity)holder.binding.amount.getContext()).setMainTime(time+"min");
                 }
             }
-            amt= 0;
         }
 
         if (data.getSubTitle().isEmpty())
@@ -88,8 +93,10 @@ public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutO
         }
 
         amount = ((ServicePackageLayoutOneActivity)holder.binding.amount.getContext()).getMainAmount();
+        mtime = ((ServicePackageLayoutOneActivity)holder.binding.amount.getContext()).getMainTime();
       //  Log.w("amount",String.valueOf(amount));
         holder.binding.amount.setText(String.valueOf(amount));
+        holder.binding.time.setText(mtime);
     }
 
     @Override

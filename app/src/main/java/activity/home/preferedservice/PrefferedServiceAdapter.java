@@ -18,6 +18,7 @@ import java.util.List;
 
 import activity.home.servicepackagelayout1.ServicePackageLayoutOneActivity;
 import activity.home.servicepackagelayout2.ServicePackageActivity;
+import activity.home.servicepackagelayout3.ServicePackageLayoutThreeActivity;
 import data.model.api.homepage.ServiceData;
 import utils.GlobalStore;
 
@@ -84,6 +85,14 @@ public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServi
                 GlobalStore.amt = 0;
                 GlobalStore.discount = 0;
                 Intent i = new Intent(view.getContext(), ServicePackageLayoutOneActivity.class);
+                i.putExtra("name",list.get(getLayoutPosition()).getName());
+                i.putExtra("id",list.get(getLayoutPosition()).getServiceId());
+                i.putExtra("icon",list.get(getLayoutPosition()).getIcon());
+                view.getContext().startActivity(i);
+            }
+            else if (list.get(getLayoutPosition()).getType().equalsIgnoreCase("layout3"))
+            {
+                Intent i = new Intent(view.getContext(), ServicePackageLayoutThreeActivity.class);
                 i.putExtra("name",list.get(getLayoutPosition()).getName());
                 i.putExtra("id",list.get(getLayoutPosition()).getServiceId());
                 i.putExtra("icon",list.get(getLayoutPosition()).getIcon());

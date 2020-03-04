@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="activity.home.servicepackagelayout3.ServicePackageLayoutThreeActivity"
+    tools:showIn="@layout/activity_service_package_layout_three">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="serviceLayoutThreeViewModel"
+            type="activity.home.servicepackagelayout3.ServiceLayoutThreeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/nobooking"
+                    android:fontFamily="@font/txt_bold"
+                    android:text="@string/no_data"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_17sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fadingEdge="none"
+                    android:overScrollMode="never"></androidx.recyclerview.widget.RecyclerView>
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/bottom"
+            layout="@layout/bottomsheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"></include>
+    </RelativeLayout>
+</layout>

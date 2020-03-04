@@ -9,6 +9,7 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.List;
 
+import data.model.api.servicepackage2.Image;
 import data.model.api.servicepackage2.ImageResult;
 import data.model.api.servicepackage2.ServicePackage;
 import data.model.api.servicepackage2.Specification;
@@ -73,6 +74,22 @@ public class DataTypeConverter {
         return gson.toJson(packages);
     }
 
+    @TypeConverter
+    public static List<Image> ImageToList(String data)
+    {
+        if (data == null){
+            return Collections.emptyList();
+        }
 
+        Type list = new TypeToken<List<Image>>(){
+        }.getType();
 
+        return gson.fromJson(data,list);
+    }
+
+    @TypeConverter
+    public static String ListToImage(List<Image> images)
+    {
+        return gson.toJson(images);
+    }
 }

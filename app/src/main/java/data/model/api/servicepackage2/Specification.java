@@ -1,7 +1,13 @@
 package data.model.api.servicepackage2;
 
+import androidx.room.TypeConverters;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
+import utils.DataTypeConverter;
 
 public class Specification {
 
@@ -38,6 +44,11 @@ public class Specification {
     @SerializedName("status")
     @Expose
     private String status;
+
+    @TypeConverters(DataTypeConverter.class)
+    @SerializedName("images")
+    @Expose
+    private List<Image> images = null;
 
     public String getSpecificationId() {
         return specificationId;
@@ -125,6 +136,14 @@ public class Specification {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 
 

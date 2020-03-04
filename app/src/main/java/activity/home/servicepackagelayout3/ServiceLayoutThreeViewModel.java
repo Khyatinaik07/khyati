@@ -1,4 +1,4 @@
-package activity.home.servicepackagelayout1;
+package activity.home.servicepackagelayout3;
 
 import android.util.Log;
 
@@ -15,11 +15,11 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import utils.rx.SchedulerProvider;
 
-public class ServiceLayoutOneViewModel extends BaseViewModel<ServiceLayoutOneNavigator> {
+public class ServiceLayoutThreeViewModel extends BaseViewModel<ServiceLayoutThreeNavigator> {
 
     private ObservableBoolean isServiceEmpty = new ObservableBoolean();
 
-    public ServiceLayoutOneViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+    public ServiceLayoutThreeViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
     }
 
@@ -45,21 +45,23 @@ public class ServiceLayoutOneViewModel extends BaseViewModel<ServiceLayoutOneNav
 
         Disposable disposable =
                 getDataManager()
-                .fetchServicePackageandSave(id)
-                .subscribeOn(getSchedulerProvider().io())
-                .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<ServicePackageResponse>() {
-                    @Override
-                    public void accept(ServicePackageResponse servicePackageResponse) throws Exception {
-                        getNavigator().hideLoading();
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        getNavigator().hideLoading();
-                        getNavigator().handleError(throwable);
-                    }
-                });
+                        .fetchServicePackageandSave(id)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(new Consumer<ServicePackageResponse>() {
+                            @Override
+                            public void accept(ServicePackageResponse servicePackageResponse) throws Exception {
+                                getNavigator().hideLoading();
+                                Log.w("success", "service package data success");
+                            }
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                getNavigator().hideLoading();
+                                getNavigator().handleError(throwable);
+                                Log.e("error","error while getting service package");
+                            }
+                        });
 
         getCompositeDisposable().add(disposable);
     }
