@@ -25,9 +25,13 @@
         android:usesCleartextTraffic="${usesCleartextTraffic}"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name="activity.home.servicepackagelayout3.viewpackagedetail.ServicePackageDetailActivity"
+            android:label="@string/title_activity_service_package_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name="activity.home.servicepackagelayout3.ServicePackageLayoutThreeActivity"
             android:label="@string/title_activity_service_package_layout_three"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.servicepackagelayout1.editpackage.EditPackageActivity"
             android:label="@string/title_activity_edit_package"

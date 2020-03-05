@@ -92,6 +92,8 @@ public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServi
             }
             else if (list.get(getLayoutPosition()).getType().equalsIgnoreCase("layout3"))
             {
+                GlobalStore.amt = 0;
+                GlobalStore.discount = 0;
                 Intent i = new Intent(view.getContext(), ServicePackageLayoutThreeActivity.class);
                 i.putExtra("name",list.get(getLayoutPosition()).getName());
                 i.putExtra("id",list.get(getLayoutPosition()).getServiceId());

@@ -47,6 +47,9 @@ import activity.home.servicepackagelayout2.specificationdetail.SpecificationDeta
 import activity.home.servicepackagelayout3.ServiceLayoutThreeModule;
 import activity.home.servicepackagelayout3.ServiceLayoutThreeProvider;
 import activity.home.servicepackagelayout3.ServicePackageLayoutThreeActivity;
+import activity.home.servicepackagelayout3.viewpackagedetail.ServicePackageDetailActivity;
+import activity.home.servicepackagelayout3.viewpackagedetail.ServicePackageDetailModule;
+import activity.home.servicepackagelayout3.viewpackagedetail.ServicePackageDetailProvider;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import fragment.homepage.HomePageFragment;
@@ -119,4 +122,7 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {ServiceLayoutThreeModule.class , ServiceLayoutThreeProvider.class})
     abstract ServicePackageLayoutThreeActivity bindServicePackageLayoutThreeActivity();
+
+    @ContributesAndroidInjector(modules = {ServicePackageDetailModule.class , ServicePackageDetailProvider.class})
+    abstract ServicePackageDetailActivity bindServicePackageDetailActivity();
 }

@@ -22,10 +22,12 @@ public class ServiceLayoutThreeAdapter extends RecyclerView.Adapter<ServiceLayou
     private List<ServiceResult> list;
     private String icon;
     SpecificationDetailAdapter adapter;
+    String name;
 
-    public ServiceLayoutThreeAdapter(ArrayList<ServiceResult> list, String icon) {
+    public ServiceLayoutThreeAdapter(ArrayList<ServiceResult> list, String icon, String string) {
         this.list = list;
         this.icon = icon;
+        this.name = string;
     }
 
     @NonNull
@@ -44,7 +46,7 @@ public class ServiceLayoutThreeAdapter extends RecyclerView.Adapter<ServiceLayou
     @Override
     public void onBindViewHolder(@NonNull myview holder, int position) {
 
-        adapter = new SpecificationDetailAdapter(list.get(position).getSpecification(),icon);
+        adapter = new SpecificationDetailAdapter(list.get(position).getSpecification(),icon,name);
         holder.binding.rv.setAdapter(adapter);
     }
 

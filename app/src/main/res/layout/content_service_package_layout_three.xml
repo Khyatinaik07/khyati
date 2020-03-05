@@ -28,19 +28,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/nobooking"
-                    android:fontFamily="@font/txt_bold"
-                    android:text="@string/no_data"
-                    android:layout_centerInParent="true"
-                    android:layout_centerVertical="true"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/_17sdp"></androidx.appcompat.widget.AppCompatTextView>
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_8sdp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv"
@@ -53,6 +42,18 @@
             </RelativeLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawableTop="@drawable/nobooking"
+            android:fontFamily="@font/txt_bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/no_data"
+            android:textAlignment="center"
+            android:textSize="@dimen/_17sdp"></androidx.appcompat.widget.AppCompatTextView>
 
         <include
             android:id="@+id/bottom"

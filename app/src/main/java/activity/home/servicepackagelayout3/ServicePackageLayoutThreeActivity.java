@@ -1,5 +1,6 @@
 package activity.home.servicepackagelayout3;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import javax.inject.Inject;
 
 import activity.basic.BaseActivity;
 import data.model.api.servicepackage2.ServiceResult;
+import utils.CommonUtils;
 
 public class ServicePackageLayoutThreeActivity extends BaseActivity<ActivityServicePackageLayoutThreeBinding,ServiceLayoutThreeViewModel> implements ServiceLayoutThreeNavigator {
 
@@ -62,7 +64,7 @@ public class ServicePackageLayoutThreeActivity extends BaseActivity<ActivityServ
     {
         LinearLayoutManager l = new LinearLayoutManager(getApplicationContext());
         binding.three.rv.setLayoutManager(l);
-        adapter = new ServiceLayoutThreeAdapter(new ArrayList<>(),icon.toString());
+        adapter = new ServiceLayoutThreeAdapter(new ArrayList<>(),icon.toString(),name.toString());
         binding.three.rv.setAdapter(adapter);
     }
 
@@ -110,6 +112,36 @@ public class ServicePackageLayoutThreeActivity extends BaseActivity<ActivityServ
         {
             binding.three.rv.setVisibility(View.VISIBLE);
             binding.three.text.setVisibility(View.GONE);
+        }
+    }
+
+    public void setBottomLayoutVisibility(Boolean b) {
+        if (b) {
+            binding.three.bottom.con.setVisibility(View.VISIBLE);
+        } else {
+            binding.three.bottom.con.setVisibility(View.GONE);
+        }
+    }
+
+    public void setAmountText(double amount) {
+        String text = '\u20B9' + CommonUtils.numberFormatter(amount);
+        binding.three.bottom.amt.setText(text);
+    }
+
+    public void setDiscountText(int discount) {
+        String discountamt = '\u20B9' + String.valueOf(discount);
+        binding.three.bottom.discamt.setText(discountamt);
+        binding.three.bottom.discamt.setPaintFlags(binding.three.bottom.discamt.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+    }
+    public void setDiscount(double discountTxt)
+    {
+        if (discountTxt == 0)
+        {
+            binding.three.bottom.discamt.setVisibility(View.GONE);
+        }
+        else
+        {
+            binding.three.bottom.discamt.setVisibility(View.VISIBLE);
         }
     }
 

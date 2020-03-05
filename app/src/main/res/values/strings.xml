@@ -138,4 +138,7 @@
     <string name="title_activity_edit_package">EditPackageActivity</string>
     <string name="title_activity_service_package_layout_three">ServicePackageLayoutThree</string>
 
+    <string name="title_activity_service_package_detail">ServicePackageDetailActivity</string>
+    <string name="add_to_card">ADD TO CARD</string>
+
 </resources>
