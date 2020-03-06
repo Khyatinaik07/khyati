@@ -29,6 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_18sdp"
             android:layout_marginLeft="@dimen/_18sdp"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
             android:layout_marginEnd="@dimen/_18sdp"
             android:layout_marginRight="@dimen/_18sdp"
             android:layout_marginBottom="@dimen/_18sdp"

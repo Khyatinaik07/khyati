@@ -11,6 +11,8 @@
                 android:bottomLeftRadius="@dimen/_30sdp"
                 android:bottomRightRadius="0dp"
                 />
+            <stroke android:width="@dimen/_1sdp"
+                android:color="@color/black"></stroke>
         </shape>
 
     </item>

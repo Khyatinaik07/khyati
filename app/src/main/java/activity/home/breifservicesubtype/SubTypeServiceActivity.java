@@ -51,7 +51,10 @@ public class SubTypeServiceActivity extends BaseActivity<ActivitySubTypeServiceB
 
         setAdapter();
 
-        getViewModel().getService(id);
+        if (isNetworkConnected(true))
+        {
+            getViewModel().getService(id);
+        }
 
         getViewModel().getDataManager().getServiceLive(0,id).observe(this, new Observer<List<ServiceData>>() {
             @Override

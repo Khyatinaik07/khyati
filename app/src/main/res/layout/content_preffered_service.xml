@@ -7,7 +7,7 @@
 
     <data>
 
-        <import type="android.view.View"></import>
+        <import type="android.view.View" />
 
         <variable
             name="preferedServiceViewModel"
@@ -32,31 +32,43 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/txt_bold"
-                    android:id="@+id/title"
                     android:layout_margin="@dimen/_8sdp"
-                    android:textSize="@dimen/_17sdp"></androidx.appcompat.widget.AppCompatTextView>
+                    android:fontFamily="@font/txt_bold"
+                    android:textSize="@dimen/_17sdp" />
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/_8sdp">
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:overScrollMode="never"
-                            android:fadingEdge="none"></androidx.recyclerview.widget.RecyclerView>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:drawableTop="@drawable/nobooking"
+                        android:fontFamily="@font/txt_bold"
+                        android:text="@string/no_data"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_17sdp" />
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fadingEdge="none"
+                        android:overScrollMode="never" />
+
+                </RelativeLayout>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.core.widget.NestedScrollView>
 
     </RelativeLayout>
+
 </layout>

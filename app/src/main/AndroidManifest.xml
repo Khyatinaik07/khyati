@@ -27,106 +27,132 @@
         <activity
             android:name="activity.home.servicepackagelayout3.viewpackagedetail.ServicePackageDetailActivity"
             android:label="@string/title_activity_service_package_detail"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name="activity.home.servicepackagelayout3.ServicePackageLayoutThreeActivity"
             android:label="@string/title_activity_service_package_layout_three"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.servicepackagelayout1.editpackage.EditPackageActivity"
             android:label="@string/title_activity_edit_package"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.servicepackagelayout1.ServicePackageLayoutOneActivity"
             android:label="@string/title_activity_service_package_layout2"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.servicepackagelayout2.specificationdetail.SpecificationDetailActivity"
             android:label="@string/title_activity_specification_detail"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.changePassword.ChangePasswordActivity"
             android:label="@string/title_activity_change_password"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.authentication.otpverify.VerifyOTPActivity"
             android:label="@string/title_activity_verify_otp"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.authentication.forgotpassword.ForgotPasswordActivity"
             android:label="@string/title_activity_forgot_password"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.MembershipActivity"
             android:label="@string/title_activity_membership"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.servicepackagelayout2.ServicePackageActivity"
             android:label="@string/title_activity_service_package"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.preferedservice.PrefferedServiceActivity"
             android:label="@string/title_activity_preffered_service"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.BookingDetailActivity"
             android:label="@string/title_activity_booking_detail"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="fragment.BookingHistoryFragment"
             android:label="@string/title_activity_booking_history_fragment"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="fragment.BookingTypeActivity"
             android:label="@string/title_activity_booking_type"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.editprofile.EditProfileActivity"
             android:label="@string/title_activity_edit_profile"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="fragment.myprofile.MyProfileFragment"
             android:label="@string/title_activity_my_profile_fragment"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.DateTimeActivity"
             android:label="@string/title_activity_date_time"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.LocationActivity"
             android:label="@string/title_activity_location"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="fragment.BookingFragment"
             android:label="@string/title_activity_booking_fragment"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.allsubservice.SubServiceAllActivity"
             android:label="@string/title_activity_sub_service_all"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.breifservicesubtype.SubTypeServiceActivity"
             android:label="@string/title_activity_sub_type_service"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="fragment.homepage.HomePageFragment"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.home.homepagetab.HomePageTabActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activity.authentication.registration.RegistrationActivity"
             android:label="@string/title_activity_registration"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustNothing" />
+            />
         <activity
             android:name="activity.authentication.login.LoginActivity"
             android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="activity.basic.BaseActivity" />
         <activity
             android:name="activity.basic.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

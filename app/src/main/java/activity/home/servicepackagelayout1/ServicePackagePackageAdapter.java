@@ -15,6 +15,7 @@ import com.example.onlineserviceportal.databinding.RowpackagelayoutBinding;
 import java.util.List;
 
 import data.model.api.servicepackage2.ServicePackage;
+import data.model.api.servicepackage2.Specification;
 
 public class ServicePackagePackageAdapter extends RecyclerView.Adapter<ServicePackagePackageAdapter.myview> {
 
@@ -37,8 +38,18 @@ public class ServicePackagePackageAdapter extends RecyclerView.Adapter<ServicePa
         ServicePackage servicePackage = packages.get(position);
         holder.binding.setPackages(servicePackage);
 
-        adapter = new SpectificationDetailAdapter(packages.get(position).getSpecification());
-        holder.binding.specdetailrv.setAdapter(adapter);
+        StringBuilder sb = new StringBuilder();
+        List<Specification> specifications = packages.get(position).getSpecification();
+        for (int i=0;i<specifications.size();i++)
+        {
+            sb.append(specifications.get(i).getTitle());
+            sb.append(",");
+        }
+        String s = sb.toString();
+        if (s.endsWith(",")) {
+            s = s.substring(0, s.length() - 1);
+        }
+        holder.binding.specification.setText(s);
     }
 
     @Override
@@ -56,9 +67,6 @@ public class ServicePackagePackageAdapter extends RecyclerView.Adapter<ServicePa
 
             LinearLayoutManager l = new LinearLayoutManager(itemView.getContext());
             l.setOrientation(RecyclerView.HORIZONTAL);
-            binding.specdetailrv.setLayoutManager(l);
-            binding.specdetailrv.setNestedScrollingEnabled(false);
         }
     }
-
 }

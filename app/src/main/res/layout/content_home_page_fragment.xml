@@ -7,7 +7,8 @@
 
     <data>
 
-        <import type="android.view.View"></import>
+        <import type="android.view.View">
+        </import>
 
         <variable
             name="homePageViewModel"
@@ -25,7 +26,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/search"
-            android:scrollbars="none">
+            android:scrollbars="none"
+            android:fadingEdge="none"
+            android:overScrollMode="never">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -42,6 +45,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_3sdp"
                         android:layout_marginEnd="@dimen/_4sdp"
+                        android:fadingEdge="none"
+                        android:overScrollMode="never"
                         android:layout_marginBottom="@dimen/_7sdp">
                     </androidx.recyclerview.widget.RecyclerView>
 
@@ -87,7 +92,8 @@
                     android:layout_marginLeft="@dimen/_8sdp"
                     android:layout_marginRight="@dimen/_8sdp"
                     android:text="@string/services"
-                    android:textSize="@dimen/_17sdp"
+                    android:textSize="@dimen/_19sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:textStyle="bold">
                 </androidx.appcompat.widget.AppCompatTextView>
 
@@ -98,8 +104,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/relative1"
                     android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:text="@string/ourservice"
-                    android:textSize="@dimen/_17sdp"
+                    android:textSize="@dimen/_19sdp"
                     android:textStyle="bold">
                 </androidx.appcompat.widget.AppCompatTextView>
 

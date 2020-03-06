@@ -111,7 +111,11 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
         l.setOrientation(RecyclerView.HORIZONTAL);
         binding.homeFragment.rv.setLayoutManager(l);
         binding.homeFragment.rv.setAdapter(adapter);
-        getmViewModel().getBannerData();
+        if (isNetworkConnected(true))
+        {
+            getmViewModel().getBannerData();
+        }
+
 
         //our service
         binding.homeFragment.rv2.setLayoutManager(new GridLayoutManager(getContext(),3));
@@ -121,8 +125,10 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
         LinearLayoutManager l3 = new LinearLayoutManager(getContext());
         binding.homeFragment.rv3.setLayoutManager(l3);
         binding.homeFragment.rv3.setAdapter(briefServiceAdapter);
-        getmViewModel().getServiceData();
-
+        if (isNetworkConnected(true))
+        {
+            getmViewModel().getServiceData();
+        }
     }
 
     @Override

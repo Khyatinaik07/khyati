@@ -5,49 +5,65 @@
 
     <data>
 
-        <import type="android.view.View"></import>
+        <import type="android.view.View"/>
 
         <variable
             name="serviceData"
             type="data.model.api.homepage.ServiceData" />
     </data>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_3sdp"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:layout_marginEnd="@dimen/_4sdp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:layout_marginBottom="@dimen/_4sdp"
-        app:cardCornerRadius="@dimen/_3sdp"
-        app:cardElevation="@dimen/_1sdp">
-
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/_1sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            app:cardCornerRadius="@dimen/_3sdp">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/img"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_70sdp"
-                android:scaleType="centerCrop"></androidx.appcompat.widget.AppCompatImageView>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt"
-                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/txt_bold"
-                android:text="@{serviceData.getName()}"
-                android:textAlignment="center"
-                android:maxLines="2"
-               android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:layout_below="@+id/img"
-                android:padding="@dimen/_8sdp"
-                android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
-        </RelativeLayout>
+                android:orientation="vertical">
 
-    </androidx.cardview.widget.CardView>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_70sdp"
+                    android:id="@+id/img"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop">
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@color/white">
+                    </View>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:id="@+id/txt"
+                        android:text="@{serviceData.name}"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/txt_bold"
+                        android:maxLines="2"
+                        android:padding="@dimen/_3sdp">
+                    </androidx.appcompat.widget.AppCompatTextView>
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.cardview.widget.CardView>
 </layout>

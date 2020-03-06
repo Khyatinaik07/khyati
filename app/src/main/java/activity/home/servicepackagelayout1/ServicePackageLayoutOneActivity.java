@@ -49,7 +49,11 @@ public class ServicePackageLayoutOneActivity extends BaseActivity<ActivityServic
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getViewModel().getService(id.toString());
+        if (isNetworkConnected(true))
+        {
+            getViewModel().getService(id.toString());
+        }
+
     }
 
     public void setMainAmount(String amount)

@@ -2,6 +2,7 @@ package activity.home.preferedservice;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -47,14 +48,15 @@ public class PrefferedServiceActivity extends BaseActivity<ActivityPrefferedServ
         id = getIntent().getSerializableExtra("id");
         title = getIntent().getSerializableExtra("title");
 
-
         Picasso.with(getApplicationContext()).load(image.toString()).into(binding.img);
         getSupportActionBar().setTitle(name.toString());
 
         binding.prefer.title.setText(title.toString());
 
-        getViewModel().getService(id.toString());
-
+        if (isNetworkConnected(true))
+        {
+            getViewModel().getService(id.toString());
+        }
     }
 
     @Override
@@ -104,8 +106,16 @@ public class PrefferedServiceActivity extends BaseActivity<ActivityPrefferedServ
 
     @Override
     public void onSeviceFetch(List<ServiceData> list) {
+        if (list.isEmpty())
+        {
+            binding.prefer.rv.setVisibility(View.GONE);
+            binding.prefer.text.setVisibility(View.VISIBLE);
+        }
+        else {
+            binding.prefer.rv.setVisibility(View.VISIBLE);
+            binding.prefer.text.setVisibility(View.GONE);
+        }
         getViewModel().setIsEmpty(list.isEmpty());
         adapter.setData(list);
-
     }
 }

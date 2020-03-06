@@ -6,7 +6,8 @@
     tools:showIn="@layout/activity_service_package">
 
     <data>
-        <import type="android.view.View"></import>
+        <import type="android.view.View">
+        </import>
         <variable
             name="servicePackageViewModel"
             type="activity.home.servicepackagelayout2.ServicePackageViewModel" />
@@ -38,7 +39,8 @@
                     android:text="@string/no_data"
                     android:textAlignment="center"
                     android:textSize="@dimen/_17sdp"
-                    android:visibility="@{servicePackageViewModel.getIsServiceEmpty() ? View.VISIBLE : View.GONE}"></androidx.appcompat.widget.AppCompatTextView>
+                    android:visibility="@{servicePackageViewModel.getIsServiceEmpty() ? View.VISIBLE : View.GONE}">
+                </androidx.appcompat.widget.AppCompatTextView>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/title"
@@ -49,7 +51,7 @@
                     android:paddingLeft="@dimen/_8sdp"
                     android:paddingRight="@dimen/_8sdp"
                     android:text="@string/selectpackage"
-                    android:textSize="@dimen/_19sdp">
+                    android:textSize="@dimen/_17sdp">
                 </androidx.appcompat.widget.AppCompatTextView>
 
                 <View
@@ -80,7 +82,8 @@
             android:layout_width="match_parent"
             android:visibility="gone"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"></include>
+            android:layout_alignParentBottom="true">
+        </include>
 
     </RelativeLayout>
 </layout>

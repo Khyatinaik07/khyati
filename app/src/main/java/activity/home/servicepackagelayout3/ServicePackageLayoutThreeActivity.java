@@ -50,7 +50,9 @@ public class ServicePackageLayoutThreeActivity extends BaseActivity<ActivityServ
 
         setAdapter();
 
-        getViewModel().getService(String.valueOf(id));
+       if (isNetworkConnected(true)){
+           getViewModel().getService(String.valueOf(id));
+       }
 
     }
 

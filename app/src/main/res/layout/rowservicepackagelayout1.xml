@@ -1,143 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <import type="android.view.View"></import>
+
         <variable
             name="serviceResult"
             type="data.model.api.servicepackage2.ServiceResult" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/_8sdp">
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:textSize="@dimen/_14sdp"
-        android:fontFamily="@font/txt_bold"
-        android:textColor="@color/white"
-        android:id="@+id/subtitle"
-        android:text="@{serviceResult.getSubTitle()}"
-        android:background="@color/colorPrimary"
-        android:padding="@dimen/_5sdp">
-    </androidx.appcompat.widget.AppCompatTextView>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imgrv"
-        app:layout_constraintTop_toBottomOf="@+id/subtitle">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:elevation="@dimen/_1sdp"
+        app:cardCornerRadius="@dimen/_3sdp"
+        android:layout_margin="@dimen/_7sdp"
+        app:cardUseCompatPadding="true">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/imgrv"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:scaleType="centerCrop"
-        android:id="@+id/img">
-    </androidx.appcompat.widget.AppCompatImageView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/img"
-        android:layout_marginTop="@dimen/_5sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:textSize="@dimen/_16sdp"
-        android:fontFamily="@font/txt_bold"
-        android:id="@+id/title"
-        android:text="@{serviceResult.getName()}">
-    </androidx.appcompat.widget.AppCompatTextView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/amount"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textSize="@dimen/_15sdp"
-        android:fontFamily="@font/txt_medium"
-        app:layout_constraintLeft_toLeftOf="parent">
-    </androidx.appcompat.widget.AppCompatTextView>
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="@dimen/_15sdp"
-        android:layout_height="@dimen/_15sdp"
-        app:layout_constraintTop_toBottomOf="@+id/amount"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:src="@drawable/clock"
-        android:id="@+id/imgtime"
-        app:layout_constraintLeft_toLeftOf="parent">
-    </androidx.appcompat.widget.AppCompatImageView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/_13sdp"
-        android:id="@+id/time"
-        app:layout_constraintTop_toBottomOf="@+id/amount"
-        app:layout_constraintLeft_toRightOf="@+id/imgtime"
-        android:layout_marginLeft="@dimen/_5sdp"
-        app:layout_constraintTop_toTopOf="@+id/imgtime"
-        app:layout_constraintBottom_toBottomOf="@+id/imgtime">
-    </androidx.appcompat.widget.AppCompatTextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rvspec"
-        app:layout_constraintTop_toBottomOf="@+id/imgtime"
-        android:fadingEdge="none"
-        android:overScrollMode="never"
-        android:layout_marginTop="@dimen/_5sdp">
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/conedit"
-        app:layout_constraintTop_toBottomOf="@+id/rvspec"
-        android:layout_marginTop="@dimen/_4sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@color/lightpink"
-        android:padding="@dimen/_5sdp">
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_13sdp"
-            android:fontFamily="@font/txt_bold"
-            android:text="@string/edit_package"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/conedit"
-            android:id="@+id/edit"
-            android:textColor="@color/colorAccent">
-        </androidx.appcompat.widget.AppCompatTextView>
+            android:padding="@dimen/_8sdp">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/next"
-            android:tint="@color/colorAccent"
-            app:layout_constraintTop_toTopOf="@+id/edit"
-            app:layout_constraintBottom_toBottomOf="@+id/edit"
-            app:layout_constraintLeft_toRightOf="@+id/edit">
-        </androidx.appcompat.widget.AppCompatImageView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/txt_bold"
+                android:padding="@dimen/_5sdp"
+                android:text="@{serviceResult.getSubTitle()}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatTextView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/imgrv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/subtitle"></androidx.recyclerview.widget.RecyclerView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgrv"></androidx.appcompat.widget.AppCompatImageView>
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/txt_bold"
+                android:text="@{serviceResult.getName()}"
+                android:textSize="@dimen/_16sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img"></androidx.appcompat.widget.AppCompatTextView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/v"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:background="@color/cardview_shadow_start_color"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title"></View>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/txt_medium"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/v"></androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgtime"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/clock"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amount"></androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgtime"
+                app:layout_constraintLeft_toRightOf="@+id/imgtime"
+                app:layout_constraintTop_toBottomOf="@+id/amount"
+                app:layout_constraintTop_toTopOf="@+id/imgtime"></androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvspec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fadingEdge="none"
+
+                app:layout_constraintTop_toBottomOf="@+id/imgtime"></androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/conedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/lightpink"
+                android:padding="@dimen/_5sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvspec">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/txt_bold"
+                    android:text="@string/edit_package"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/_13sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/conedit"></androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/next"
+                    android:tint="@color/colorAccent"
+                    app:layout_constraintBottom_toBottomOf="@+id/edit"
+                    app:layout_constraintLeft_toRightOf="@+id/edit"
+                    app:layout_constraintTop_toTopOf="@+id/edit"></androidx.appcompat.widget.AppCompatImageView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

@@ -63,7 +63,10 @@ public class SubTypeAllServiceFragment extends BaseFragment<Subtypeallservicefra
             id = getArguments().getString(AppConstants.ID,"");
         }
 
-        getmViewModel().getService(id);
+        if (isNetworkConnected(true))
+        {
+            getmViewModel().getService(id);
+        }
 
         getmViewModel().getDataManager().getServiceLive(0,id).observe(getViewLifecycleOwner(), new Observer<List<ServiceData>>() {
             @Override

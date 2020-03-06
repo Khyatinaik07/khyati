@@ -54,7 +54,10 @@ public class ServicePackageActivity extends BaseActivity<ActivityServicePackageB
 
         setAdapter();
 
-        getViewModel().setServicePackage(sid);
+        if (isNetworkConnected(true))
+        {
+            getViewModel().setServicePackage(sid);
+        }
 
     }
 

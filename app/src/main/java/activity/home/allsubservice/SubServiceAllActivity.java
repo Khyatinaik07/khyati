@@ -71,7 +71,6 @@ public class SubServiceAllActivity extends BaseActivity<ActivitySubServiceAllBin
                 getViewModel().setIsDataEmpty(serviceData.isEmpty());
             }
         });
-
     }
 
     @Override
@@ -118,6 +117,5 @@ public class SubServiceAllActivity extends BaseActivity<ActivitySubServiceAllBin
                     String tabName = serviceData.get(position1).getName();
                     tab.setText(tabName);
                 }).attach();
-
     }
 }
