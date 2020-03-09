@@ -121,6 +121,9 @@ dependencies {
     //view pager 2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.android.material:material:1.2.0-alpha03'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-material:3.1.0'
     //collapsing toolbar subtitle
     implementation 'com.hendraanggrian:collapsingtoolbarlayout-subtitle:27.1.0'
+    //searchview
+    implementation 'com.github.mirrajabi:search-dialog:1.2.4'
 }

@@ -11,5 +11,9 @@
     <color name="orange">#FFA500</color>
     <color name="lightgrey">#40D3D3D3</color>
     <color name="lightpink">#FFB6C1</color>
+    <color name="colorHeadingBlack_80">#80000000</color>
+    <color name="colorSubHeading_76">#767676</color>
+    <color name="colorPlaceHolder_C6">#c6c6c6</color>
+    <color name="colorBlue">#0078ff</color>
 
 </resources>

@@ -28,8 +28,9 @@ import data.model.api.homepage.BannerData;
 import data.model.api.homepage.ServiceData;
 import di.FragmentScope;
 import utils.AppConstants;
+import utils.widget.OnSearchQueryInputListener;
 
-public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBinding,HomePageViewModel> implements HomePageNavigator,View.OnClickListener {
+public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBinding,HomePageViewModel> implements HomePageNavigator {
 
     @Inject
     @FragmentScope
@@ -39,13 +40,9 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
 
     private BannerAdapter adapter = new BannerAdapter(getContext(),new ArrayList<>());
 
-    //ArrayList<ServiceClass> list2 = new ArrayList<>();
     private ServiceAdapter serviceAdapter = new ServiceAdapter(new ArrayList<>());
-   // ServiceClass serviceClass;
 
-    //ArrayList<BreifServiceClass> txt1list3 = new ArrayList<>();
     private BriefServiceAdapter briefServiceAdapter = new BriefServiceAdapter(new ArrayList<>());
-    //BreifServiceClass breifServiceClass;
 
     public HomePageFragment(Context context)
     {
@@ -61,6 +58,24 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
 
         setAdapter();
 
+        getmViewModel().setOrderBy(0);
+        getmViewModel().getDataManager().getAllSearviceNameFromDB(getmViewModel().orderBy.get(),"0","").observe(this, getmViewModel().serviceObserver);
+        getmViewModel().setOrderBy(1);
+        getmViewModel().getDataManager().getAllSearviceNameFromDB(getmViewModel().orderBy.get(),"0","").observe(this,getmViewModel().briefServiceObserver);
+
+        binding.homeFragment.searchView.setOnQueryInputListener(new OnSearchQueryInputListener() {
+            @Override
+            public void onTextEntered(CharSequence query) {
+                getmViewModel().getDataManager().getAllSearviceNameFromDB(0,"0","%" + query + "%").observe(getActivity(), getmViewModel().serviceObserver);
+                getmViewModel().getDataManager().getAllSearviceNameFromDB(1,"0","%" + query + "%").observe(getActivity(),getmViewModel().briefServiceObserver);
+            }
+
+            @Override
+            public void onSearchCancelClick() {
+                onStart();
+            }
+        });
+
         return binding.getRoot();
     }
 
@@ -75,7 +90,6 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
     }
 
     @Override
-
     public int getLayoutId() {
         return R.layout.activity_home_page_fragment;
     }
@@ -116,7 +130,6 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
             getmViewModel().getBannerData();
         }
 
-
         //our service
         binding.homeFragment.rv2.setLayoutManager(new GridLayoutManager(getContext(),3));
         binding.homeFragment.rv2.setAdapter(serviceAdapter);
@@ -129,11 +142,6 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
         {
             getmViewModel().getServiceData();
         }
-    }
-
-    @Override
-    public void onClick(View view) {
-
     }
 
     @Override

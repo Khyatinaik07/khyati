@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableInt;
 import androidx.lifecycle.Observer;
+import androidx.room.RoomWarnings;
 
 import java.util.List;
 
@@ -20,9 +21,10 @@ import utils.rx.SchedulerProvider;
 
 public class HomePageViewModel extends BaseViewModel<HomePageNavigator> {
 
-    ObservableInt orderBy = new ObservableInt();
-    ObservableBoolean isDataEmpty = new ObservableBoolean();
+    public ObservableInt orderBy = new ObservableInt();
+    private ObservableBoolean isDataEmpty = new ObservableBoolean();
 
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     public HomePageViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
     }

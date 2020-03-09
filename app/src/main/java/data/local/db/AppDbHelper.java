@@ -81,6 +81,11 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
+    public LiveData<List<ServiceData>> getAllSearviceNameFromDB(int orderBy,String id,String input) {
+        return mAppDatabase.serviceProviderDao().getServiceNameFromDB(orderBy,id,input);
+    }
+
+    @Override
     public void saveServicePackagetoDb(List<ServiceResult> serviceResults) {
         mAppDatabase.serviceProviderDao().saveServicePackageData(serviceResults);
     }

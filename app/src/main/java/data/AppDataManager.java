@@ -302,6 +302,11 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public LiveData<List<ServiceData>> getAllSearviceNameFromDB(int orderBy,String id,String input) {
+        return mDbHelper.getAllSearviceNameFromDB(orderBy,id,input);
+    }
+
+    @Override
     public void saveServicePackagetoDb(List<ServiceResult> serviceResults) {
         mDbHelper.saveServicePackagetoDb(serviceResults);
     }

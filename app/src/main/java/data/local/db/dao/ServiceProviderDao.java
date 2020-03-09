@@ -40,6 +40,11 @@ public interface ServiceProviderDao {
     @Query("SELECT * FROM ServiceData WHERE parentId = :id ORDER BY CASE WHEN :order = 0 THEN sortOrderGrid END ASC")
     LiveData<List<ServiceData>> getAllServiceNameLive(int order,String id);
 
+    @Query("SELECT *,TRIM(name) AS name FROM servicedata " +
+            "WHERE parentId= :id  " +
+            "AND name LIKE :searchQuery ORDER BY CASE WHEN :orderBy = 0 THEN sortOrderGrid END ASC,CASE WHEN :orderBy = 1 THEN sortOrderList END ASC" )
+    LiveData<List<ServiceData>> getServiceNameFromDB(int orderBy,String id,String searchQuery);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void saveServicePackageData(List<ServiceResult> serviceResults);
 

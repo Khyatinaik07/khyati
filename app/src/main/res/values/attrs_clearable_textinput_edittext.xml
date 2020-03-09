@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ClearableTextInputEditText" parent="ClearableEditText">
+        <attr name="clearIconDrawable" />
+        <attr name="startIconDrawables" />
+        <attr name="clearIconDrawWhenFocused" />
+    </declare-styleable>
+
+    <declare-styleable name="ClearableEditText">
+        <attr format="color|reference" name="clearIconDrawable"/>
+        <attr format="color|reference" name="startIconDrawables"/>
+        <attr format="boolean" name="clearIconDrawWhenFocused"/>
+    </declare-styleable>
+</resources>

@@ -31,6 +31,8 @@ public interface DbHelper {
 
     LiveData<List<ServiceData>> getAllServiceNameLive(int order,String id);
 
+    LiveData<List<ServiceData>> getAllSearviceNameFromDB(int orderBy,String id,String input);
+
     void saveServicePackagetoDb(List<ServiceResult> serviceResults);
 
     LiveData<List<ServiceResult>> getServicePackageLive(String id);

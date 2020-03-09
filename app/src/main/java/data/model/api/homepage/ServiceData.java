@@ -1,9 +1,9 @@
 package data.model.api.homepage;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -15,43 +15,55 @@ public class ServiceData implements Serializable {
 
     @PrimaryKey
     @SerializedName("service_id")
-    @Expose
+    @ColumnInfo(name = "serviceId")
     private int serviceId;
+
     @SerializedName("parent_id")
-    @Expose
+    @ColumnInfo(name = "parentId")
     private String parentId;
+
     @SerializedName("name")
-    @Expose
+    @ColumnInfo(name = "name")
     private String name;
+
     @SerializedName("title")
-    @Expose
+    @ColumnInfo(name = "title")
     private String title;
+
     @SerializedName("sub_title")
-    @Expose
+    @ColumnInfo(name = "subTitle")
     private String subTitle;
+
     @SerializedName("type")
-    @Expose
+    @ColumnInfo(name = "type")
     private String type;
+
     @SerializedName("icon")
-    @Expose
+    @ColumnInfo(name = "icon")
     private String icon;
+
     @SerializedName("banner")
-    @Expose
+    @ColumnInfo(name = "banner")
     private String banner;
+
     @SerializedName("sort_order_list")
-    @Expose
+    @ColumnInfo(name = "sortOrderList")
     private String sortOrderList;
+
     @SerializedName("sort_order_grid")
-    @Expose
+    @ColumnInfo(name = "sortOrderGrid")
     private String sortOrderGrid;
+
     @SerializedName("status")
-    @Expose
+    @ColumnInfo(name = "status")
     private String status;
+
     @SerializedName("createdate")
-    @Expose
+    @ColumnInfo(name = "createdate")
     private String createdate;
+
     @SerializedName("modifydate")
-    @Expose
+    @ColumnInfo(name = "modifydate")
     private String modifydate;
 
     public int getServiceId() {
