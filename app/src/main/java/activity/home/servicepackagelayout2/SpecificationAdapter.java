@@ -29,7 +29,6 @@ public class SpecificationAdapter extends RecyclerView.Adapter<SpecificationAdap
     private List<Specification> serviceResults;
     private String icon;
     private ServiceResult sr;
-   // private int number = 0;
 
     public SpecificationAdapter(ServiceResult serviceResult, List<Specification> serviceResults, String icon) {
         this.serviceResults= serviceResults;

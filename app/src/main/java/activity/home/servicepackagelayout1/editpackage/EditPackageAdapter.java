@@ -19,8 +19,8 @@ import data.model.api.servicepackage2.ServiceResult;
 public class EditPackageAdapter  extends RecyclerView.Adapter<EditPackageAdapter.myview>{
 
     private List<ServiceResult> serviceResults;
-    String icon;
-    PackageAdapter adapter;
+    public String icon;
+    public PackageAdapter adapter;
 
     public EditPackageAdapter(List<ServiceResult> serviceResults, String icon) {
         this.serviceResults = serviceResults;

@@ -24,7 +24,7 @@ import utils.GlobalStore;
 
 public class PrefferedServiceAdapter extends RecyclerView.Adapter<PrefferedServiceAdapter.myview> {
 
-    List<ServiceData> list;
+    private List<ServiceData> list;
 
     public PrefferedServiceAdapter(List<ServiceData> list) {
         this.list=list;

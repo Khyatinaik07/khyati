@@ -15,7 +15,7 @@ public class AllServiceAdapter extends FragmentStateAdapter {
 
 
     private List<ServiceData> serviceData;
-    String id;
+    public String id;
 
     public AllServiceAdapter ( FragmentManager fm, Lifecycle lifecycle,String id){
         super(fm,lifecycle);

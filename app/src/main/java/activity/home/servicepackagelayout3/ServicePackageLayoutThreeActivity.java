@@ -27,8 +27,8 @@ import utils.CommonUtils;
 public class ServicePackageLayoutThreeActivity extends BaseActivity<ActivityServicePackageLayoutThreeBinding,ServiceLayoutThreeViewModel> implements ServiceLayoutThreeNavigator {
 
     ActivityServicePackageLayoutThreeBinding binding;
-    Serializable id,name,icon;
-    ServiceLayoutThreeAdapter adapter;
+    private Serializable id,name,icon;
+    public ServiceLayoutThreeAdapter adapter;
 
     @Inject
     ViewModelProvider.Factory mViewModelFactory;

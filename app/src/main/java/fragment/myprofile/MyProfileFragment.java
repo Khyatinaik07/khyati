@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +69,7 @@ public class MyProfileFragment extends BaseFragment<ActivityMyProfileFragmentBin
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         this.mUserID = getmViewModel().getDataManager().getUserID();
-        Log.e("id",getmViewModel().getDataManager().getUserID().toString());
+      //  Log.e("id",getmViewModel().getDataManager().getUserID().toString());
         getmViewModel().setNavigator(this);
         binding = getViewDataBinding();
         click();
@@ -105,12 +104,12 @@ public class MyProfileFragment extends BaseFragment<ActivityMyProfileFragmentBin
     @Override
     public void onClick(View view) {
         if (binding.fab.equals(view)){
-            Intent i = new Intent(context, EditProfileActivity.class);
+            Intent i = new Intent(view.getContext(), EditProfileActivity.class);
             context.startActivity(i);
         }
         if (binding.profile.relative6.equals(view))
         {
-            Intent i = new Intent(context, ChangePasswordActivity.class);
+            Intent i = new Intent(view.getContext(), ChangePasswordActivity.class);
             context.startActivity(i);
         }
         if (binding.profile.logout.equals(view))
@@ -136,7 +135,6 @@ public class MyProfileFragment extends BaseFragment<ActivityMyProfileFragmentBin
         NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancelAll();
 
-
         // Start splash
         final Intent intent = new Intent(getActivity(), LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -145,5 +143,4 @@ public class MyProfileFragment extends BaseFragment<ActivityMyProfileFragmentBin
         // Finish current activity
         getActivity().finish();
     }
-
 }

@@ -110,10 +110,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="activity.home.LocationActivity"
+            android:name="activity.home.location.LocationActivity"
             android:label="@string/title_activity_location"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="fragment.BookingFragment"
             android:label="@string/title_activity_booking_fragment"
@@ -155,11 +161,6 @@
             android:screenOrientation="portrait"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -167,7 +168,7 @@
             android:value="@string/google_maps_key" />
 
         <service
-            android:name="activity.home.GetAddressIntentService"
+            android:name="activity.home.location.GetAddressIntentService"
             android:exported="false" />
 
         <uses-library

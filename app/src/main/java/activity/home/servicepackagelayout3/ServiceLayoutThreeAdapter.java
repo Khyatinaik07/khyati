@@ -21,8 +21,8 @@ public class ServiceLayoutThreeAdapter extends RecyclerView.Adapter<ServiceLayou
 
     private List<ServiceResult> list;
     private String icon;
-    SpecificationDetailAdapter adapter;
-    String name;
+    public SpecificationDetailAdapter adapter;
+    private String name;
 
     public ServiceLayoutThreeAdapter(ArrayList<ServiceResult> list, String icon, String string) {
         this.list = list;

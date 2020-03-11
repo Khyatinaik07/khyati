@@ -28,8 +28,8 @@ import utils.GlobalStore;
 public class ServiceLayoutOneAdapter extends RecyclerView.Adapter<ServiceLayoutOneAdapter.myview> {
 
     private List<ServiceResult> list;
-    ServicePackageImageAdapter adapter;
-    ServicePackagePackageAdapter packageAdapter;
+    public ServicePackageImageAdapter adapter;
+    public ServicePackagePackageAdapter packageAdapter;
     private String icon,mtime,amount;
 
     public ServiceLayoutOneAdapter(ArrayList<ServiceResult> serviceResults,String icon) {

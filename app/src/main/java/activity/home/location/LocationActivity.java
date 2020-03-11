@@ -1,4 +1,4 @@
-package activity.home;
+package activity.home.location;
 
 import android.Manifest;
 import android.content.Intent;
@@ -14,11 +14,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.example.onlineserviceportal.BR;
 import com.example.onlineserviceportal.R;
 import com.example.onlineserviceportal.databinding.ActivityLocationBinding;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -27,7 +27,15 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 
-public class LocationActivity extends AppCompatActivity  {
+import javax.inject.Inject;
+
+import activity.basic.BaseActivity;
+import activity.home.DateTimeActivity;
+
+public class LocationActivity extends BaseActivity<ActivityLocationBinding,LocationViewModel> implements LocationNavigator{
+
+    @Inject
+    ViewModelProvider.Factory mViewModelFactory;
 
     ActivityLocationBinding binding;
     private FusedLocationProviderClient fusedLocationClient;
@@ -39,7 +47,7 @@ public class LocationActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_location);
+        binding = getViewDataBinding();
         setSupportActionBar(binding.toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -59,7 +67,21 @@ public class LocationActivity extends AppCompatActivity  {
                     }
                 };
                 startLocationUpdates();
+    }
 
+    @Override
+    public LocationViewModel getViewModel() {
+        return new ViewModelProvider(this,mViewModelFactory).get(LocationViewModel.class);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_location;
+    }
+
+    @Override
+    public int getBindingVariable() {
+        return BR.locationViewModel;
     }
 
     @SuppressWarnings("MissingPermission")
@@ -116,6 +138,8 @@ public class LocationActivity extends AppCompatActivity  {
 
         }
     }
+
+
     private class LocationAddressResultReceiver extends ResultReceiver {
         LocationAddressResultReceiver(Handler handler) {
             super(handler);

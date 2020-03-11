@@ -1,6 +1,5 @@
 package fragment.homepage;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +18,9 @@ import data.model.api.homepage.BannerData;
 
 public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.myview> {
 
-    List<BannerData> list1;
-    Context context;
+    private List<BannerData> list1;
 
-    public BannerAdapter(Context context,List<BannerData> list1) {
-        this.context=context;
+    public BannerAdapter(List<BannerData> list1) {
         this.list1=list1;
     }
 

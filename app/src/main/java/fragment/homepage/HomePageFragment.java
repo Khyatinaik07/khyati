@@ -38,7 +38,7 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
 
     private ActivityHomePageFragmentBinding binding;
 
-    private BannerAdapter adapter = new BannerAdapter(getContext(),new ArrayList<>());
+    private BannerAdapter adapter = new BannerAdapter(new ArrayList<>());
 
     private ServiceAdapter serviceAdapter = new ServiceAdapter(new ArrayList<>());
 
@@ -107,11 +107,14 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
     @Override
     public void onStart() {
         super.onStart();
+        //banner
         getmViewModel().getDataManager().getBannerDataLive().observe(this, getmViewModel().bannerObserver);
 
+        //our service
         getmViewModel().setOrderBy(0);
         getmViewModel().getDataManager().getServiceLive(getmViewModel().orderBy.get(),"0").observe(this,getmViewModel().serviceObserver);
 
+        //brief service
         getmViewModel().setOrderBy(1);
         getmViewModel().getDataManager().getServiceLive(getmViewModel().orderBy.get(),"0").observe(this,getmViewModel().briefServiceObserver);
     }
@@ -121,6 +124,8 @@ public class HomePageFragment extends BaseFragment<ActivityHomePageFragmentBindi
         ViewCompat.setNestedScrollingEnabled(binding.homeFragment.rv,false);
         ViewCompat.setNestedScrollingEnabled(binding.homeFragment.rv2,false);
         ViewCompat.setNestedScrollingEnabled(binding.homeFragment.rv3,false);
+
+        //banner
         LinearLayoutManager l = new LinearLayoutManager(getContext());
         l.setOrientation(RecyclerView.HORIZONTAL);
         binding.homeFragment.rv.setLayoutManager(l);

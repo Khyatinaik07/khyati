@@ -37,6 +37,10 @@ public class ChangePasswordActivity extends BaseActivity<ActivityChangePasswordB
         getViewModel().setNavigator(this);
 
         binding.change.submit.setOnClickListener(this);
+
+        getSupportActionBar().setTitle(R.string.change_password);
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

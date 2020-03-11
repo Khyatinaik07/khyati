@@ -28,9 +28,9 @@ import utils.CommonUtils;
 public class ServicePackageActivity extends BaseActivity<ActivityServicePackageBinding,ServicePackageViewModel> implements ServicePackageNavigator {
 
     ActivityServicePackageBinding binding;
-    ServicePackageAdapter adapter;
-    Serializable i, id, icon;
-    String sid;
+    public ServicePackageAdapter adapter;
+    private Serializable i, id, icon;
+    private String sid;
 
     @Inject
     ViewModelProvider.Factory mViewModelFactory;

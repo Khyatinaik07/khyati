@@ -29,6 +29,9 @@ import activity.home.editprofile.EditProfileProvider;
 import activity.home.homepagetab.HomePageTabActivity;
 import activity.home.homepagetab.HomePageTabModule;
 import activity.home.homepagetab.HomePageTabProvider;
+import activity.home.location.LocationActivity;
+import activity.home.location.LocationModule;
+import activity.home.location.LocationProvider;
 import activity.home.preferedservice.PreferedServiceModule;
 import activity.home.preferedservice.PreferedServiceProvider;
 import activity.home.preferedservice.PrefferedServiceActivity;
@@ -125,4 +128,7 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {ServicePackageDetailModule.class , ServicePackageDetailProvider.class})
     abstract ServicePackageDetailActivity bindServicePackageDetailActivity();
+
+    @ContributesAndroidInjector(modules = {LocationModule.class , LocationProvider.class})
+    abstract LocationActivity bindLocationActivity();
 }

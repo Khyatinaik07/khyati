@@ -1,4 +1,4 @@
-package activity.home;
+package activity.home.location;
 
 import android.app.IntentService;
 import android.content.Intent;
